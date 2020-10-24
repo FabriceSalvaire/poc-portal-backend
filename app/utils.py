@@ -5,11 +5,18 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict, Optional
 
+# https://github.com/lavr/python-emails
+# https://python-emails.readthedocs.io
 import emails
 from emails.template import JinjaTemplate
+
 from jose import jwt
 
 from app.core.config import settings
+
+####################################################################################################
+
+_module_logger = logging.getLogger(__name__)
 
 ####################################################################################################
 
@@ -32,8 +39,12 @@ def send_email(
         smtp_options["user"] = settings.SMTP_USER
     if settings.SMTP_PASSWORD:
         smtp_options["password"] = settings.SMTP_PASSWORD
+    print(smtp_options)
     response = message.send(to=email_to, render=environment, smtp=smtp_options)
-    logging.info(f"send email result: {response}")
+    _module_logger.warn(f"send email result: {response}")
+    # Fixme:
+    if response.status_code not in [250, ]:
+        _module_logger.warn(f"Failed to send email: {smtp_options} {response}")
 
 ####################################################################################################
 

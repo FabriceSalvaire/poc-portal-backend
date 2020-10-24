@@ -2,7 +2,7 @@
 
 from fastapi import APIRouter
 
-from app.api.api_v1.endpoints import items, login, users, utils
+from app.api.api_v1.endpoints import login, users, utils
 
 ####################################################################################################
 

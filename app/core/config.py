@@ -7,7 +7,13 @@ from pydantic import AnyHttpUrl, BaseSettings, EmailStr, HttpUrl, PostgresDsn, v
 
 ####################################################################################################
 
+# https://pydantic-docs.helpmanual.io/usage/settings/
+# The model initialiser will attempt to determine the values of any fields not passed as keyword
+# arguments by reading from the environment. (Default values will still be used if the matching
+# environment variable is not set.)
+
 class Settings(BaseSettings):
+
     API_V1_STR: str = "/api/v1"
     SECRET_KEY: str = secrets.token_urlsafe(32)
     # 60 minutes * 24 hours * 8 days = 8 days
@@ -27,9 +33,10 @@ class Settings(BaseSettings):
             return v
         raise ValueError(v)
 
-    PROJECT_NAME: str
+    PROJECT_NAME: str   # FastAPI(title=PROJECT_NAME)
     SENTRY_DSN: Optional[HttpUrl] = None
 
+    # Fixme:
     @validator("SENTRY_DSN", pre=True)
     def sentry_dsn_can_be_blank(cls, v: str) -> Optional[str]:
         if len(v) == 0:

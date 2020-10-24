@@ -10,6 +10,8 @@ from app.db.base_class import Base
 
 ####################################################################################################
 
+# https://docs.python.org/3/library/typing.html#typing.TypeVar
+# https://docs.python.org/3/library/typing.html#typing.Generic
 ModelType = TypeVar("ModelType", bound=Base)
 CreateSchemaType = TypeVar("CreateSchemaType", bound=BaseModel)
 UpdateSchemaType = TypeVar("UpdateSchemaType", bound=BaseModel)
@@ -34,12 +36,16 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
     ##############################################
 
     def get(self, db: Session, id: Any) -> Optional[ModelType]:
+        """Get an item by id"""
         return db.query(self.model).filter(self.model.id == id).first()
 
     ##############################################
 
     def get_multi(
-            self, db: Session, *, skip: int = 0, limit: int = 100
+            self, db: Session,
+            *,
+            skip: int = 0,
+            limit: int = 100,
     ) -> List[ModelType]:
         return db.query(self.model).offset(skip).limit(limit).all()
 
@@ -62,7 +68,7 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         db_obj: ModelType,
         obj_in: Union[UpdateSchemaType, Dict[str, Any]]
     ) -> ModelType:
-        obj_data = jsonable_encoder(db_obj)
+        obj_data = jsonable_encoder(db_obj)   # Fixme: ???
         if isinstance(obj_in, dict):
             update_data = obj_in
         else:
