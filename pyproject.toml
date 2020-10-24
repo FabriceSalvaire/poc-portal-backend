@@ -1,0 +1,75 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["Fabrice Salvaire <dev@fabrice-salvaire.fr>"]
+
+# Caret requirements allow SemVer compatible updates to a specified
+# version.  An update is allowed if the new version number does not
+# modify the left-most non-zero digit in the major, minor, patch
+# grouping.
+# Requirement   Versions allowed
+# ^1.2.3        >=1.2.3 <2.0.0
+# ^1.2          >=1.2.0 <2.0.0
+# ^1            >=1.0.0 <2.0.0
+# ^0.2.3        >=0.2.3 <0.3.0
+# ^0.0.3        >=0.0.3 <0.0.4
+# ^0.0          >=0.0.0 <0.1.0
+# ^0            >=0.0.0 <1.0.0
+
+# Tilde requirements specify a minimal version with some ability to
+# update.  If you specify a major, minor, and patch version or only a
+# major and minor version, only patch-level changes are allowed.  If
+# you only specify a major version, then minor- and patch-level
+# changes are allowed.
+# Requirement   Versions allowed
+# ~1.2.3        >=1.2.3 <1.3.0
+# ~1.2          >=1.2.0 <1.3.0
+# ~1            >=1.0.0 <2.0.0
+
+# Wildcard requirements allow for the latest (dependency dependent) version where the wildcard is positioned.
+# Inequality requirements allow manually specifying a version range or an exact version to depend on.
+# Exact requirements
+
+[tool.poetry.dependencies]
+python = "^3.7"
+alembic = "^1.4.3"
+fastapi = "^0.61.1"
+gunicorn = "^20.0.4"
+Jinja2 = "^2.11.2"
+psycopg2-binary = "^2.8.6"
+SQLAlchemy = "^1.3.20"
+uvicorn = "^0.12.2"
+# celery = "^4.4.2"
+# email-validator = "^1.0.5"
+# emails = "^0.5.15"
+# passlib = {extras = ["bcrypt"], version = "^1.7.2"}
+# pydantic = "^1.4"
+# pytest = "^5.4.1"
+# python-jose = {extras = ["cryptography"], version = "^3.1.0"}
+# python-multipart = "^0.0.5"
+# raven = "^6.10.0"
+# requests = "^2.23.0"
+# tenacity = "^6.1.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.8.4"
+# mypy = "^0.770"
+# black = "^19.10b0"
+# isort = "^4.3.21"
+# autoflake = "^1.3.1"
+# pytest = "^5.4.1"
+# sqlalchemy-stubs = "^0.3"
+# pytest-cov = "^2.8.1"
+
+invoke = "^1.4.1"
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+line_length = 88
+
+[build-system]
+requires = ["poetry>=1.1.3"]
+build-backend = "poetry.masonry.api"
+
