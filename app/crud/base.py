@@ -18,7 +18,7 @@ UpdateSchemaType = TypeVar("UpdateSchemaType", bound=BaseModel)
 
 ####################################################################################################
 
-class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
+class CrudBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
 
     ##############################################
 
