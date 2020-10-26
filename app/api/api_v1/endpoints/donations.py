@@ -2,7 +2,7 @@
 
 from typing import Any, List
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, Header, HTTPException
 from sqlalchemy.orm import Session
 
 from app import crud, models, schemas
@@ -28,8 +28,29 @@ def read_donations(
     if crud.user.is_superuser(current_user):
         donations = crud.donation.get_multi(db, skip=skip, limit=limit)
     else:
-        donations = crud.donation.get_multi_by_owner(
-            db=db, owner_id=current_user.id, skip=skip, limit=limit
+        donations = crud.donation.get_multi_by_donator(
+            db=db, donator_id=current_user.id, skip=skip, limit=limit
+        )
+    return donations
+
+####################################################################################################
+
+@router.get("/donators", response_model=List[schemas.Donator])
+def read_donations(
+    db: Session = Depends(deps.get_db),
+    skip: int = 0,
+    limit: int = 100,
+    current_user: models.User = Depends(deps.get_current_active_user),
+) -> Any:
+    """
+    Retrieve donations.
+    """
+    # Fixme:
+    if crud.user.is_superuser(current_user):
+        donations = crud.donator.get_multi(db, skip=skip, limit=limit)
+    else:
+        donations = crud.donator.get_multi_by_donator(
+            db=db, donator_id=current_user.id, skip=skip, limit=limit
         )
     return donations
 
@@ -40,11 +61,12 @@ def create_donation(
     *,
     db: Session = Depends(deps.get_db),
     donation_in: schemas.DonationCreate,
+    referer: str = Header(None),
 ) -> Any:
     """
     Create new donation.
     """
-    donation = crud.donation.create(db=db, obj_in=donation_in)
+    donation = crud.donation.create(db=db, obj_in=donation_in, referer=referer)
     return donation
 
 ####################################################################################################
@@ -63,7 +85,7 @@ def create_donation(
 #     donation = crud.donation.get(db=db, id=id)
 #     if not donation:
 #         raise HTTPException(status_code=404, detail="Donation not found")
-#     if not crud.user.is_superuser(current_user) and (donation.owner_id != current_user.id):
+#     if not crud.user.is_superuser(current_user) and (donation.donator_id != current_user.id):
 #         raise HTTPException(status_code=400, detail="Not enough permissions")
 #     donation = crud.donation.update(db=db, db_obj=donation, obj_in=donation_in)
 #     return donation
@@ -83,7 +105,7 @@ def read_donation(
     donation = crud.donation.get(db=db, id=id)
     if not donation:
         raise HTTPException(status_code=404, detail="Donation not found")
-    if not crud.user.is_superuser(current_user) and (donation.owner_id != current_user.id):
+    if not crud.user.is_superuser(current_user) and (donation.donator_id != current_user.id):
         raise HTTPException(status_code=400, detail="Not enough permissions")
     return donation
 
@@ -102,7 +124,7 @@ def read_donation(
 #     donation = crud.donation.get(db=db, id=id)
 #     if not donation:
 #         raise HTTPException(status_code=404, detail="Donation not found")
-#     if not crud.user.is_superuser(current_user) and (donation.owner_id != current_user.id):
+#     if not crud.user.is_superuser(current_user) and (donation.donator_id != current_user.id):
 #         raise HTTPException(status_code=400, detail="Not enough permissions")
 #     donation = crud.donation.remove(db=db, id=id)
 #     return donation

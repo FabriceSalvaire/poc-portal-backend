@@ -13,6 +13,8 @@ from app.crud.base import CrudBase
 from app.models.donation import Donator, Donation
 from app.schemas.donation import DonatorCreate, DonatorUpdate, DonationBase, DonationCreate, DonationUpdate
 
+from app.stripe import create_checkout_session, StripeError
+
 ####################################################################################################
 
 class CrudDonator(CrudBase[Donator, DonatorCreate, DonatorUpdate]):
@@ -53,10 +55,10 @@ class CrudDonation(CrudBase[Donation, DonationCreate, DonationUpdate]):
     ##############################################
 
     def create(
-        self, db: Session, *, obj_in: DonationCreate
+            self, db: Session, *, obj_in: DonationCreate, referer: str
     ) -> Donation:
         # print(type(obj_in), obj_in)
-        #  <class 'app.schemas.donation.DonationCreate'> 
+        #  <class 'app.schemas.donation.DonationCreate'>
         #  date=datetime.datetime(2020, 10, 25, 19, 2, 50, 153000, tzinfo=datetime.timezone.utc)
         #  int_amount=0
         #  donator_type=<DonatorType.individual: 1>
@@ -85,6 +87,22 @@ class CrudDonation(CrudBase[Donation, DonationCreate, DonationUpdate]):
         db.add(db_obj)
         db.commit()
         db.refresh(db_obj)
+
+        # Fixme: error handling
+        try:
+            session_id = create_checkout_session(
+                customer_email=obj_in.email,
+                amount=obj_in.int_amount,
+                product_name="donation",
+                callback_url=obj_in.callback_url or referer,
+                success_suffix_url=obj_in.success_suffix_url,
+                cancel_suffix_url=obj_in.cancel_suffix_url,
+            )
+            print(session_id)
+            self.update(db, db_obj=db_obj, obj_in=dict(stripe_session_id=session_id))
+        except StripeError as e:
+            pass
+
         return db_obj
 
     ##############################################

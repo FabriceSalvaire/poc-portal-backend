@@ -1,11 +1,15 @@
 ####################################################################################################
 
 from datetime import datetime
-from typing import Optional
+from typing import List, Optional, ForwardRef
 
 from pydantic import BaseModel, EmailStr
 
 from ..models.donation import DonatorType, PaymentStatus
+
+####################################################################################################
+
+# Donation = ForwardRef('Donation')
 
 ####################################################################################################
 
@@ -40,11 +44,11 @@ class DonatorInDbBase(DonatorBase):
 
 # Properties to return to client
 class Donator(DonatorInDbBase):
-    pass
+    donations: List['DonationInDbBase'] # Take care to recursion
 
 ####################################################################################################
 
-# Properties properties stored in DB
+# Properties stored in DB
 class DonatorInDb(DonatorInDbBase):
     pass
 
@@ -60,7 +64,9 @@ class DonationBase(BaseModel):
 
 # Properties to receive on donation creation
 class DonationCreate(DonatorBase, DonationBase):
-    pass
+    callback_url: Optional[str] = None   # else use "Refere" HTTP header
+    success_suffix_url: Optional[str] = "/success.html"
+    cancel_suffix_url: Optional[str] = "/cancel.html"
 
 ####################################################################################################
 
@@ -73,8 +79,9 @@ class DonationUpdate(DonationBase):
 # Properties shared by models stored in DB
 class DonationInDbBase(DonationBase):
     id: int
-    donator_id: int
+    # donator_id: int
     payment_status: PaymentStatus
+    stripe_session_id: str
 
     class Config:
         orm_mode = True
@@ -83,10 +90,14 @@ class DonationInDbBase(DonationBase):
 
 # Properties to return to client
 class Donation(DonationInDbBase):
+    donator: DonatorInDbBase # Take care to recursion
+
+####################################################################################################
+
+# Properties stored in DB
+class DonationInDb(DonationInDbBase):
     pass
 
 ####################################################################################################
 
-# Properties properties stored in DB
-class DonationInDb(DonationInDbBase):
-    pass
+Donator.update_forward_refs()

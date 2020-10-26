@@ -52,11 +52,13 @@ class CrudBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
     ##############################################
 
     def create(self, db: Session, *, obj_in: CreateSchemaType) -> ModelType:
+        print('CrudBase.create', type(obj_in), obj_in)
         obj_in_data = jsonable_encoder(obj_in)
+        print('CrudBase.create', type(obj_in_data), obj_in_data)
         db_obj = self.model(**obj_in_data)  # type: ignore
         db.add(db_obj)
         db.commit()
-        db.refresh(db_obj)
+        db.refresh(db_obj)  # to update e.g. auto increment field like id
         return db_obj
 
     ##############################################
@@ -68,7 +70,12 @@ class CrudBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         db_obj: ModelType,
         obj_in: Union[UpdateSchemaType, Dict[str, Any]]
     ) -> ModelType:
-        obj_data = jsonable_encoder(db_obj)   # Fixme: ???
+        print('CrudBase.update', type(db_obj), db_obj, type(obj_in), obj_in)
+        #  <class 'app.models.donation.Donation'> <app.models.donation.Donation object at 0x7fb93a45adc0>
+        #  <class 'dict'> {'stripe_session_id': 'cs_test_KJhkmStOXoA5HIlKmropUY0D3k4NalCBhNvbiHAKb7aNtgA6i36aWbtP'}
+        obj_data = jsonable_encoder(db_obj)   # Fixme: purpose ??? validation ??? only use keys
+        print('CrudBase.update', type(obj_data), obj_data)
+        #  <class 'dict'> {'donator_id': 2, 'payment_status': 'incomplete', 'date': '2020-10-26T14:24:12.709000', 'stripe_session_id': None, 'int_amount': 5000, 'id': 2}
         if isinstance(obj_in, dict):
             update_data = obj_in
         else:
