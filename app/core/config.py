@@ -93,6 +93,7 @@ class Settings(BaseSettings):
     USERS_OPEN_REGISTRATION: bool = False
 
     STRIPE_API_KEY: str
+    STRIPE_ENDPOINT_SECRET: str
 
     class Config:
         case_sensitive = True

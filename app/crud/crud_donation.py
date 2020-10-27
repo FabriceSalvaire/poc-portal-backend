@@ -13,7 +13,7 @@ from app.crud.base import CrudBase
 from app.models.donation import Donator, Donation
 from app.schemas.donation import DonatorCreate, DonatorUpdate, DonationBase, DonationCreate, DonationUpdate
 
-from app.stripe import create_checkout_session, StripeError
+from app.stripe import create_checkout_session, StripeError, PaymentStatus
 
 ####################################################################################################
 
@@ -117,6 +117,23 @@ class CrudDonation(CrudBase[Donation, DonationCreate, DonationUpdate]):
     #         .limit(limit)
     #         .all()
     #     )
+
+    ##############################################
+
+    def update_payment_status(
+        self, db: Session, *, stripe_session_id: str, payment_status: str
+    ) -> Donation:
+        db_obj = db.query(self.model).filter(self.model.stripe_session_id == stripe_session_id).first()
+        if db_obj is not None:
+            if payment_status == 'paid':
+                db_obj.payment_status = PaymentStatus.succeeded
+            # Fixme: ...
+            db.add(db_obj)
+            db.commit()
+            db.refresh(db_obj)
+            return db_obj
+        else:
+            pass
 
 ####################################################################################################
 
