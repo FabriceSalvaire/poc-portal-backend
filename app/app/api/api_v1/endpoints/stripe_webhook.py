@@ -83,11 +83,11 @@ router = APIRouter()
 
 @router.post("/", status_code=200)
 async def webhook(
-        db: Session = Depends(deps.get_db),
         request: Request,
         # stripe_signature: str = Header(None),
         # body: Any = Body(...),   # get raw body
         response: Response,
+        db: Session = Depends(deps.get_db),
 ) -> Any:
     # print(request.headers)
     # print(body)
@@ -105,7 +105,7 @@ async def webhook(
             stripe_session_id = session["id"]
             payment_status = session["payment_status"]   # "paid"
             print(stripe_session_id, payment_status)
-            donation = crud.donator.update_payment_status(db, stripe_session_id, payment_status)
+            donation = crud.donation.update_payment_status(db=db, stripe_session_id=stripe_session_id, payment_status=payment_status)
     except StripeWebhookError as e:
         print(e)
         response.status_code = status.HTTP_400_BAD_REQUEST
