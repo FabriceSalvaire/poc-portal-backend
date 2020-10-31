@@ -1,0 +1,47 @@
+# -*- mode: conf; -*-
+
+####################################################################################################
+#
+# Systemd Unit
+#
+# copy and update this file to /etc/systemd/system
+# > systemctl enable portal-demo.service
+# > systemctl start portal-demo.service
+#
+# https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
+#
+# CentOS 7
+#  - postgresql10
+#  - rh-nginx114
+#  - python36 ! -> compile Python 3.7
+#
+####################################################################################################
+
+[Unit]
+Description=Portal Demo
+After=syslog.target
+After=network.target
+After=postgresql-10.target
+Requires=postgresql-10.service
+
+[Service]
+Type=simple
+User=root
+Group=nginx
+# WorkingDirectory=/...
+WorkingDirectory=/var/www/portal-demo/backend/app
+Environment='LD_LIBRARY_PATH=/usr/local/stow/python-3.7/lib'
+# Environment='BACKEND_SETTINGS_PATH=/var/www/portal-demo/backend/app/prod.env'
+Environment='BACKEND_SETTINGS_PATH=/etc/portal-demo/prod.env'
+# EnvironmentFile=/etc/sysconfig/portal-demo
+# ExecStart=/opt/python-virtual-env/fastapi/bin/python3.7
+# uvicorn app.main:app --reload
+ExecStart=/opt/python-virtual-env/fastapi/bin/gunicorn --workers 1 --worker-class uvicorn.workers.UvicornWorker --bind unix:/var/run/portal-demo.sock --pythonpath=/var/www/portal-demo/backend/app app.main:app
+# Restart=on-abort
+# Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+#[Timer]
+#OnStartupSec=120
