@@ -1,5 +1,7 @@
 ####################################################################################################
 
+import os
+from pathlib import Path
 import secrets
 from typing import Any, Dict, List, Optional, Union
 
@@ -100,4 +102,13 @@ class Settings(BaseSettings):
 
 ####################################################################################################
 
-settings = Settings()
+# https://github.com/tiangolo/fastapi/issues/1101
+# https://pydantic-docs.helpmanual.io/usage/settings/#dotenv-env-support
+
+backend_settings_path = "BACKEND_SETTINGS_PATH"
+backend_settings_path_default = "prod.env"
+env_file = Path(os.environ.get(backend_settings_path, backend_settings_path_default)).absolute()
+if not env_file.exists():
+    raise NameError(f"Environment file {env_file} not found")
+
+settings = Settings(_env_file=env_file, _env_file_encoding="utf-8")
