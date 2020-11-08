@@ -34,6 +34,8 @@ Browser > Web Frontend
 
 ### Create a database on PostgreSQL
 
+See also `app/deployment/postgresql/setup.sh`
+
 ```
 # as root
 
@@ -117,9 +119,15 @@ stripe events resend evt_1HgYxPBKQhCtA3D9ro1Z9V1b
 
 ### Invoke Tasks
 
-* **Create a schema revision* `database.alembic-revision`
-* **Upgrade database* `database.alembic-upgrade`
-* **Delete donations* `database.delete-donations`
+* **Create a schema revision** `database.alembic-revision`
+* **Upgrade database** `database.alembic-upgrade`
+* **Delete donations** `database.delete-donations`
+
+### Deploy on production
+
+See `app/deployment/` for Nginx and Systemd.
+
+Stripe forwarder must be set from the dashboard.
 
 # OpenAPI
 
