@@ -30,7 +30,9 @@ Browser > Web Frontend
 ### Configurations
 
 * **Global settings** `prod.env`
+	Its path is set using the env `BACKEND_SETTINGS_PATH`
 * **Logging** `logging.yml`
+	Its path is set in the `.env` file
 
 ### Create a database on PostgreSQL
 
@@ -125,9 +127,9 @@ stripe events resend evt_1HgYxPBKQhCtA3D9ro1Z9V1b
 
 ### Deploy on production
 
-See `app/deployment/` for Nginx and Systemd.
+See `app/deployment/` for Nginx and systemd configuration.
 
-Stripe forwarder must be set from the dashboard.
+**Note:** Stripe webhooks must be set from the dashboard.
 
 # OpenAPI
 
