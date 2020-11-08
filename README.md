@@ -49,6 +49,51 @@ createuser --pwprompt USER
 createdb --owner=USER --encoding=UTF8 --template=template0 DATABASE
 ```
 
+### Start a Stripe Webhook forwarder (dev only)
+
+See also `app/app/stripe/webhook.py`
+
+**Install Stripe CLI** using https://stripe.com/docs/stripe-cli documentation.
+```
+git clone https://github.com/stripe/stripe-cli
+cd stripe-cli
+make setup
+make test
+make build
+```
+
+**Login to Stripe CLI**
+```
+stripe login
+
+# Your pairing code is: whoa-remedy-homage-proud
+# This pairing code verifies your authentication with Stripe.
+# Press Enter to open the browser (^C to quit)
+# > Done! The Stripe CLI is configured for Stripe Test with account id acct_b1hCDtA3QHdcBKz9
+#
+# Please note: this key will expire after 90 days, at which point you'll need to re-authenticate.
+```
+
+**Start Webhook forwarder**
+```
+stripe listen --forward-to localhost:8000/api/v1/stripe_webhook/
+
+#  Ready! Your webhook signing secret is whsec_h1sMQd6YTJYLiVYhayaJyOyJO5nJIDRE (^C to quit)
+```
+
+**==>** copy-paste the secret in the backend `.env` to `STRIPE_ENDPOINT_SECRET` setting
+
+**Resend an event for a payment**
+1. Go to Dashboard/Payments
+   https://dashboard.stripe.com/test/payments
+1. Pickup a payment
+   `https://dashboard.stripe.com/test/payments/pi_1HgYuXBKQhCtA3D9az0sivEk`
+1. Select an event in the activity list and click on "View event detail" to get the event id
+   `https://dashboard.stripe.com/test/events/evt_1HgYxPBKQhCtA3D9ro1Z9V1b`
+```
+stripe events resend evt_1HgYxPBKQhCtA3D9ro1Z9V1b
+```
+
 ### Start dev server
 
 ```
@@ -76,47 +121,11 @@ python3 app/initial_data.py
 uvicorn app.main:app --reload
 ```
 
-## Start Stripe Webhook forwarder
+**Now start the frontend**
 
-See also `app/app/stripe/webhook.py`
-
-**Install Stripe CLI** using https://stripe.com/docs/stripe-cli documentation.
 ```
-git clone https://github.com/stripe/stripe-cli
-cd stripe-cli
-make setup
-make test
-make build
-```
-
-**Login to Stripe CLI**
-```
-stripe login
-
-# Your pairing code is: whoa-remedy-homage-proud
-# This pairing code verifies your authentication with Stripe.
-# Press Enter to open the browser (^C to quit)
-# > Done! The Stripe CLI is configured for Stripe Test with account id acct_b1hCDtA3QHdcBKz9
-#
-# Please note: this key will expire after 90 days, at which point you'll need to re-authenticate.
-```
-
-**Start Webhook forwarder**
-```
-stripe listen --forward-to localhost:8000/api/v1/stripe_webhook/x
-
-#  Ready! Your webhook signing secret is whsec_h1sMQd6YTJYLiVYhayaJyOyJO5nJIDRE (^C to quit)
-```
-
-**Resend an event for a payment**
-1. Go to Dashboard/Payments
-   https://dashboard.stripe.com/test/payments
-1. Pickup a payment
-   `https://dashboard.stripe.com/test/payments/pi_1HgYuXBKQhCtA3D9az0sivEk`
-1. Select an event in the activity list and click on "View event detail" to get the event id
-   `https://dashboard.stripe.com/test/events/evt_1HgYxPBKQhCtA3D9ro1Z9V1b`
-```
-stripe events resend evt_1HgYxPBKQhCtA3D9ro1Z9V1b
+cd checkout-frontend
+BROWSER="google-chrome" yarn start
 ```
 
 ### Invoke Tasks
