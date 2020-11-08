@@ -33,7 +33,7 @@ engine = create_engine(
     # enable the connection pool “pre-ping” feature that tests connections for liveness upon each
     # checkout
     pool_pre_ping=True,
-    echo=True,   # Fixme: debug
+    # echo=True,   # use logging.yml instead
 )
 
 # Session Process:

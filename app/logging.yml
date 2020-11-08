@@ -58,7 +58,19 @@ handlers:
 
 loggers:
 
-  Poc:
+  app:
+    # level: DEBUG
+    level: INFO
+    # level: WARNING
+    handlers: [console-stderr]
+
+  requests:
+    # level: DEBUG
+    level: INFO
+    # level: WARNING
+    handlers: [console-stderr]
+
+  sqlalchemy:
     # level: DEBUG
     level: INFO
     # level: WARNING
@@ -71,6 +83,12 @@ loggers:
     handlers: [console-stderr]
 
   fastapi:
+    # level: DEBUG
+    level: INFO
+    # level: WARNING
+    handlers: [console-stderr]
+
+  stripe:
     # level: DEBUG
     level: INFO
     # level: WARNING

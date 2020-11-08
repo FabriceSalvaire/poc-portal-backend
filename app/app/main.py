@@ -25,6 +25,7 @@ from app.core.logging import setup_logging
 logging_config_file = settings.LOGGING_CONFIG
 print('Setup logging using', logging_config_file)
 logger = setup_logging(config_file=logging_config_file)
+logger.info('Start app')
 
 ####################################################################################################
 

@@ -24,6 +24,8 @@
 
 ####################################################################################################
 
+import logging
+
 from typing import List
 
 from fastapi.encoders import jsonable_encoder
@@ -34,6 +36,10 @@ from app.models.donation import Donator, Donation
 from app.schemas.donation import DonatorCreate, DonatorUpdate, DonationBase, DonationCreate, DonationUpdate
 
 from app.stripe import create_checkout_session, StripeError, PaymentStatus
+
+####################################################################################################
+
+_module_logger = logging.getLogger(__name__)
 
 ####################################################################################################
 
@@ -77,6 +83,7 @@ class CrudDonation(CrudBase[Donation, DonationCreate, DonationUpdate]):
     def create(
             self, db: Session, *, obj_in: DonationCreate, referer: str
     ) -> Donation:
+
         # print(type(obj_in), obj_in)
         #  <class 'app.schemas.donation.DonationCreate'>
         #  date=datetime.datetime(2020, 10, 25, 19, 2, 50, 153000, tzinfo=datetime.timezone.utc)
@@ -92,10 +99,12 @@ class CrudDonation(CrudBase[Donation, DonationCreate, DonationUpdate]):
         _ = obj_in.dict()
         donation_create = DonationBase(**_)
         # donation_create = DonationBase.construct(**_)
-        print(donation_create)
+        # print(donation_create)
         donator_create = DonatorCreate(**_)
-        print(donator_create)
+        # print(donator_create)
         obj_in_data = jsonable_encoder(donation_create)
+
+        _module_logger.info(f"Create donation\n  {donation_create}\n  {donator_create}")
 
         # print(type(donator_create), donator_create)
         #  <class 'app.schemas.donation.DonatorCreate'>
@@ -118,9 +127,10 @@ class CrudDonation(CrudBase[Donation, DonationCreate, DonationUpdate]):
                 success_suffix_url=obj_in.success_suffix_url,
                 cancel_suffix_url=obj_in.cancel_suffix_url,
             )
-            print(session_id)
+            _module_logger.info(f'Stripe session_id {session_id}')
             self.update(db, db_obj=db_obj, obj_in=dict(stripe_session_id=session_id))
         except StripeError as e:
+            # Fixme:
             pass
 
         return db_obj

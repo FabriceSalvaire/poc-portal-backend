@@ -59,8 +59,9 @@ def setup_logging(config_file=default_config_file):
     fix_formater(logging_config)
     logging.config.dictConfig(logging_config)
 
-    root_logger = logging.getLogger('POC')
+    root_logger = logging.getLogger('app')
 
+    # Fixme: name
     log_level_env = 'PocLogLevel'
     if log_level_env in os.environ:
         numeric_level = getattr(logging, os.environ[log_level_env], None)

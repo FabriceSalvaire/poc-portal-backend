@@ -25,6 +25,7 @@ __all__ = ["create_checkout_session", "PaymentStatus"]
 ####################################################################################################
 
 from enum import auto
+import logging
 
 from fastapi_utils.enums import StrEnum
 
@@ -33,6 +34,8 @@ import stripe   # https://github.com/stripe/stripe-python
 from app.core.config import settings
 
 ####################################################################################################
+
+_module_logger = logging.getLogger(__name__)
 
 stripe.api_key = settings.STRIPE_API_KEY
 
@@ -81,6 +84,5 @@ def create_checkout_session(
         )
         return checkout_session.id
     except Exception as e:
-        # Fixme: logging
-        print(e)
-        raise StripeError("...")
+        _module_logger.error(f'Stripe error: {e}')
+        raise StripeError(str(e))
