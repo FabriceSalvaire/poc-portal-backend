@@ -168,3 +168,14 @@ def dump_postgresql_to_json(
     command = os.linesep.join(commands)
     print(command)
     send_command(command)
+
+####################################################################################################
+
+@task()
+def delete_donations(ctx):
+    from app.db.session import SessionLocal
+    from app.models.donation import Donator, Donation
+    db = SessionLocal()
+    db.query(Donation).delete()
+    db.query(Donator).delete()
+    db.commit()
