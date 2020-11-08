@@ -1,10 +1,17 @@
 ####################################################################################################
 
+from app.core.config import settings
+from app.core.logging import setup_logging
+logging_config_file = settings.LOGGING_CONFIG
+print('Setup logging using', logging_config_file)
+logger = setup_logging(config_file=logging_config_file)
+
+####################################################################################################
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.api_v1.api import api_router
-from app.core.config import settings
 
 ####################################################################################################
 
