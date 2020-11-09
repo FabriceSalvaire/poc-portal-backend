@@ -1,0 +1,1478 @@
+- code: AF
+  code3: AFG
+  flag: 🇦🇫
+  local_name: Afghanestan / افغانستان
+  name: Afghanistan
+  number: 4
+- code: AL
+  code3: ALB
+  flag: 🇦🇱
+  local_name: Shqipëria
+  name: Albania
+  number: 8
+- code: DZ
+  code3: DZA
+  flag: 🇩🇿
+  local_name: Dzayer / ⴷⵣⴰⵢⴻⵔ / Al-Jazā'ir / الجزائر
+  name: Algeria
+  number: 12
+- code: AS
+  code3: ASM
+  flag: 🇦🇸
+  local_name: Amerika Sāmoa / American Samoa
+  name: American Samoa
+  number: 16
+- code: AD
+  code3: AND
+  flag: 🇦🇩
+  local_name: Andorra
+  name: Andorra
+  number: 20
+- code: AO
+  code3: AGO
+  flag: 🇦🇴
+  local_name: Angola / Ngola
+  name: Angola
+  number: 24
+- code: AI
+  code3: AIA
+  flag: 🇦🇮
+  local_name: Anguilla
+  name: Anguilla
+  number: 660
+- code: AQ
+  code3: ATA
+  name: Antarctica
+  number: 10
+- code: AG
+  code3: ATG
+  flag: 🇦🇬
+  local_name: Antigua and Barbuda
+  name: Antigua and Barbuda
+  number: 28
+- code: AR
+  code3: ARG
+  flag: 🇦🇷
+  local_name: Argentina
+  name: Argentina
+  number: 32
+- code: AM
+  code3: ARM
+  flag: 🇦🇲
+  local_name: Hayastán / Հայաստան
+  name: Armenia
+  number: 51
+- code: AW
+  code3: ABW
+  flag: 🇦🇼
+  local_name: Aruba
+  name: Aruba
+  number: 533
+- code: AU
+  code3: AUS
+  flag: 🇦🇺
+  local_name: Australia
+  name: Australia
+  number: 36
+- code: AT
+  code3: AUT
+  flag: 🇦🇹
+  local_name: Österreich
+  name: Austria
+  number: 40
+- code: AZ
+  code3: AZE
+  flag: 🇦🇿
+  local_name: Azərbaycan
+  name: Azerbaijan
+  number: 31
+- code: BS
+  code3: BHS
+  flag: 🇧🇸
+  local_name: The Bahamas
+  name: Bahamas (the)
+  number: 44
+- code: BH
+  code3: BHR
+  flag: 🇧🇭
+  local_name: Al-Baḥrayn / البحرين
+  name: Bahrain
+  number: 48
+- code: BD
+  code3: BGD
+  flag: 🇧🇩
+  local_name: Bangladesh / বাংলাদেশ
+  name: Bangladesh
+  number: 50
+- code: BB
+  code3: BRB
+  flag: 🇧🇧
+  local_name: Barbados
+  name: Barbados
+  number: 52
+- code: BY
+  code3: BLR
+  flag: 🇧🇾
+  local_name: Bielaruś / Belarus / Беларусь
+  name: Belarus
+  number: 112
+- code: BE
+  code3: BEL
+  flag: 🇧🇪
+  local_name: Belgique / België / Belgien
+  name: Belgium
+  number: 56
+- code: BZ
+  code3: BLZ
+  flag: 🇧🇿
+  local_name: Belize
+  name: Belize
+  number: 84
+- code: BJ
+  code3: BEN
+  flag: 🇧🇯
+  local_name: Bénin
+  name: Benin
+  number: 204
+- code: BM
+  code3: BMU
+  flag: 🇧🇲
+  local_name: Bermuda
+  name: Bermuda
+  number: 60
+- code: BT
+  code3: BTN
+  flag: 🇧🇹
+  local_name: Druk Yul / འབྲུག་ཡུལ
+  name: Bhutan
+  number: 64
+- code: BO
+  code3: BOL
+  flag: 🇧🇴
+  local_name: Bolivia / Buliwya / Wuliwya / Volívia
+  name: Bolivia (Plurinational State of)
+  number: 68
+- code: BQ
+  code3: BES
+  name: Bonaire, Sint Eustatius and Saba
+  number: 535
+- code: BA
+  code3: BIH
+  flag: 🇧🇦
+  local_name: Bosna i Hercegovina / Босна и Херцеговина
+  name: Bosnia and Herzegovina
+  number: 70
+- code: BW
+  code3: BWA
+  flag: 🇧🇼
+  local_name: Botswana
+  name: Botswana
+  number: 72
+- code: BV
+  code3: BVT
+  name: Bouvet Island
+  number: 74
+- code: BR
+  code3: BRA
+  flag: 🇧🇷
+  local_name: Brasil
+  name: Brazil
+  number: 76
+- code: IO
+  code3: IOT
+  name: British Indian Ocean Territory (the)
+  number: 86
+- code: BN
+  code3: BRN
+  flag: 🇧🇳
+  local_name: Brunei / بروني
+  name: Brunei Darussalam
+  number: 96
+- code: BG
+  code3: BGR
+  flag: 🇧🇬
+  local_name: Bulgariya / Bălgarija / България
+  name: Bulgaria
+  number: 100
+- code: BF
+  code3: BFA
+  flag: 🇧🇫
+  local_name: Burkina Faso
+  name: Burkina Faso
+  number: 854
+- code: BI
+  code3: BDI
+  flag: 🇧🇮
+  local_name: Uburundi / Burundi
+  name: Burundi
+  number: 108
+- code: CV
+  code3: CPV
+  flag: 🇨🇻
+  local_name: Cabo Verde
+  name: Cabo Verde
+  number: 132
+- code: KH
+  code3: KHM
+  flag: 🇰🇭
+  local_name: Kampuchea / កម្ពុជា
+  name: Cambodia
+  number: 116
+- code: CM
+  code3: CMR
+  flag: 🇨🇲
+  local_name: Cameroun / Cameroon
+  name: Cameroon
+  number: 120
+- code: CA
+  code3: CAN
+  flag: 🇨🇦
+  local_name: Canada
+  name: Canada
+  number: 124
+- code: KY
+  code3: CYM
+  flag: 🇰🇾
+  local_name: Cayman Islands
+  name: Cayman Islands (the)
+  number: 136
+- code: CF
+  code3: CAF
+  flag: 🇨🇫
+  local_name: République Centrafricaine / Ködörösêse tî Bêafrîka
+  name: Central African Republic (the)
+  number: 140
+- code: TD
+  code3: TCD
+  flag: 🇹🇩
+  local_name: Tchad / Tšād / تشاد
+  name: Chad
+  number: 148
+- code: CL
+  code3: CHL
+  flag: 🇨🇱
+  local_name: Chile
+  name: Chile
+  number: 152
+- code: CN
+  code3: CHN
+  flag: 🇨🇳
+  local_name: Zhōngguó / 中国
+  name: China
+  number: 156
+- code: CX
+  code3: CXR
+  flag: 🇨🇽
+  local_name: Christmas Island
+  name: Christmas Island
+  number: 162
+- code: CC
+  code3: CCK
+  flag: 🇨🇨
+  local_name: Cocos Islands
+  name: Cocos (Keeling) Islands (the)
+  number: 166
+- code: CO
+  code3: COL
+  flag: 🇨🇴
+  local_name: Colombia
+  name: Colombia
+  number: 170
+- code: KM
+  code3: COM
+  flag: 🇰🇲
+  local_name: Komori / Juzur al-Qamar / جزر القمر / Comores
+  name: Comoros (the)
+  number: 174
+- code: CD
+  code3: COD
+  flag: 🇨🇩
+  local_name: République démocratique du Congo / Republíki ya Kongó Demokratíki /
+    Jamhuri ya Kidemokrasia ya Kongo
+  name: Congo (the Democratic Republic of the)
+  number: 180
+- code: CG
+  code3: COG
+  flag: 🇨🇬
+  local_name: République du Congo / Republíki ya Kongó
+  name: Congo (the)
+  number: 178
+- code: CK
+  code3: COK
+  flag: 🇨🇰
+  local_name: Cook Islands / Kuki Airani
+  name: Cook Islands (the)
+  number: 184
+- code: CR
+  code3: CRI
+  flag: 🇨🇷
+  local_name: Costa Rica
+  name: Costa Rica
+  number: 188
+- code: HR
+  code3: HRV
+  flag: 🇭🇷
+  local_name: Hrvatska
+  name: Croatia
+  number: 191
+- code: CU
+  code3: CUB
+  flag: 🇨🇺
+  local_name: Cuba
+  name: Cuba
+  number: 192
+- code: CW
+  code3: CUW
+  flag: 🇨🇼
+  local_name: Curaçao / Kòrsou / Curaçao
+  name: Curaçao
+  number: 531
+- code: CY
+  code3: CYP
+  flag: 🇨🇾
+  local_name: Kypros / Κύπρος / Kıbrıs
+  name: Cyprus
+  number: 196
+- code: CZ
+  code3: CZE
+  flag: 🇨🇿
+  local_name: Česká republika / Česko
+  name: Czechia
+  number: 203
+- code: CI
+  code3: CIV
+  flag: 🇨🇮
+  local_name: Côte d'Ivoire
+  name: Côte d'Ivoire
+  number: 384
+- code: DK
+  code3: DNK
+  flag: 🇩🇰
+  local_name: Danmark
+  name: Denmark
+  number: 208
+- code: DJ
+  code3: DJI
+  flag: 🇩🇯
+  local_name: Jībūtī / جيبوتي / Djibouti
+  name: Djibouti
+  number: 262
+- code: DM
+  code3: DMA
+  flag: 🇩🇲
+  local_name: Dominica
+  name: Dominica
+  number: 212
+- code: DO
+  code3: DOM
+  flag: 🇩🇴
+  local_name: República Dominicana
+  name: Dominican Republic (the)
+  number: 214
+- code: EC
+  code3: ECU
+  flag: 🇪🇨
+  local_name: Ecuador
+  name: Ecuador
+  number: 218
+- code: EG
+  code3: EGY
+  flag: 🇪🇬
+  local_name: Misr / Masr / مصر
+  name: Egypt
+  number: 818
+- code: SV
+  code3: SLV
+  flag: 🇸🇻
+  local_name: El Salvador
+  name: El Salvador
+  number: 222
+- code: GQ
+  code3: GNQ
+  flag: 🇬🇶
+  local_name: Guinea Ecuatorial / Guinée équatoriale / Guiné Equatorial
+  name: Equatorial Guinea
+  number: 226
+- code: ER
+  code3: ERI
+  flag: 🇪🇷
+  local_name: Iritriya / إرتريا / Ertra / ኤርትራ
+  name: Eritrea
+  number: 232
+- code: EE
+  code3: EST
+  flag: 🇪🇪
+  local_name: Eesti
+  name: Estonia
+  number: 233
+- code: SZ
+  code3: SWZ
+  flag: 🇸🇿
+  local_name: Eswatini / eSwatini
+  name: Eswatini
+  number: 748
+- code: ET
+  code3: ETH
+  flag: 🇪🇹
+  local_name: Ityop'ia / ኢትዮጵያ
+  name: Ethiopia
+  number: 231
+- code: FK
+  code3: FLK
+  flag: 🇫🇰
+  local_name: Falkland Islands
+  name: Falkland Islands (the) [Malvinas]
+  number: 238
+- code: FO
+  code3: FRO
+  flag: 🇫🇴
+  local_name: Føroyar / Færøerne
+  name: Faroe Islands (the)
+  number: 234
+- code: FJ
+  code3: FJI
+  flag: 🇫🇯
+  local_name: Fiji / Viti / फ़िजी
+  name: Fiji
+  number: 242
+- code: FI
+  code3: FIN
+  flag: 🇫🇮
+  local_name: Suomi / Finland
+  name: Finland
+  number: 246
+- code: FR
+  code3: FRA
+  flag: 🇫🇷
+  local_name: France
+  name: France
+  number: 250
+- code: GF
+  code3: GUF
+  flag: 🇬🇫
+  local_name: Guyane
+  name: French Guiana
+  number: 254
+- code: PF
+  code3: PYF
+  flag: 🇵🇫
+  local_name: Polynésie française
+  name: French Polynesia
+  number: 258
+- code: TF
+  code3: ATF
+  name: French Southern Territories (the)
+  number: 260
+- code: GA
+  code3: GAB
+  flag: 🇬🇦
+  local_name: République gabonaise
+  name: Gabon
+  number: 266
+- code: GM
+  code3: GMB
+  flag: 🇬🇲
+  local_name: The Gambia
+  name: Gambia (the)
+  number: 270
+- code: GE
+  code3: GEO
+  flag: 🇬🇪
+  local_name: Sak'art'velo / საქართველო
+  name: Georgia
+  number: 268
+- code: DE
+  code3: DEU
+  flag: 🇩🇪
+  local_name: Deutschland
+  name: Germany
+  number: 276
+- code: GH
+  code3: GHA
+  flag: 🇬🇭
+  local_name: Ghana / Gaana / Gana
+  name: Ghana
+  number: 288
+- code: GI
+  code3: GIB
+  flag: 🇬🇮
+  local_name: Gibraltar
+  name: Gibraltar
+  number: 292
+- code: GR
+  code3: GRC
+  flag: 🇬🇷
+  local_name: Hellas / Ελλάς / Ellada / Ελλάδα
+  name: Greece
+  number: 300
+- code: GL
+  code3: GRL
+  flag: 🇬🇱
+  local_name: Kalaallit Nunaat / Grønland
+  name: Greenland
+  number: 304
+- code: GD
+  code3: GRD
+  flag: 🇬🇩
+  local_name: Grenada
+  name: Grenada
+  number: 308
+- code: GP
+  code3: GLP
+  flag: 🇬🇵
+  local_name: Guadeloupe
+  name: Guadeloupe
+  number: 312
+- code: GU
+  code3: GUM
+  flag: 🇬🇺
+  local_name: Guam / Guåhån
+  name: Guam
+  number: 316
+- code: GT
+  code3: GTM
+  flag: 🇬🇹
+  local_name: Guatemala
+  name: Guatemala
+  number: 320
+- code: GG
+  code3: GGY
+  flag: 🇬🇬
+  local_name: Guernsey
+  name: Guernsey
+  number: 831
+- code: GN
+  code3: GIN
+  flag: 🇬🇳
+  local_name: Guinée / Gine / Gine
+  name: Guinea
+  number: 324
+- code: GW
+  code3: GNB
+  flag: 🇬🇼
+  local_name: Guiné-Bissau
+  name: Guinea-Bissau
+  number: 624
+- code: GY
+  code3: GUY
+  flag: 🇬🇾
+  local_name: Guyana
+  name: Guyana
+  number: 328
+- code: HT
+  code3: HTI
+  flag: 🇭🇹
+  local_name: Haïti / Ayiti
+  name: Haiti
+  number: 332
+- code: HM
+  code3: HMD
+  name: Heard Island and McDonald Islands
+  number: 334
+- code: VA
+  code3: VAT
+  flag: 🇻🇦
+  local_name: Civitas Vaticana / Città del Vaticano
+  name: Holy See (the)
+  number: 336
+- code: HN
+  code3: HND
+  flag: 🇭🇳
+  local_name: Honduras
+  name: Honduras
+  number: 340
+- code: HK
+  code3: HKG
+  flag: 🇭🇰
+  local_name: Hong Kong / Heung Gong / 香港
+  name: Hong Kong
+  number: 344
+- code: HU
+  code3: HUN
+  flag: 🇭🇺
+  local_name: Magyarország
+  name: Hungary
+  number: 348
+- code: IS
+  code3: ISL
+  flag: 🇮🇸
+  local_name: Ísland
+  name: Iceland
+  number: 352
+- code: IN
+  code3: IND
+  flag: 🇮🇳
+  local_name: India / Bhārat / भारत
+  name: India
+  number: 356
+- code: ID
+  code3: IDN
+  flag: 🇮🇩
+  local_name: Indonesia
+  name: Indonesia
+  number: 360
+- code: IR
+  code3: IRN
+  flag: 🇮🇷
+  local_name: Īrān / ایران
+  name: Iran (Islamic Republic of)
+  number: 364
+- code: IQ
+  code3: IRQ
+  flag: 🇮🇶
+  local_name: Al-'Iraq / العراق / Îraq
+  name: Iraq
+  number: 368
+- code: IE
+  code3: IRL
+  flag: 🇮🇪
+  local_name: Éire / Ireland
+  name: Ireland
+  number: 372
+- code: IM
+  code3: IMN
+  flag: 🇮🇲
+  local_name: Isle of Man / Ellan Vannin
+  name: Isle of Man
+  number: 833
+- code: IL
+  code3: ISR
+  flag: 🇮🇱
+  local_name: Yisra'el / ישראל / Israʼiyl / إسرائيل
+  name: Israel
+  number: 376
+- code: IT
+  code3: ITA
+  flag: 🇮🇹
+  local_name: Italia
+  name: Italy
+  number: 380
+- code: JM
+  code3: JAM
+  flag: 🇯🇲
+  local_name: Jamaica
+  name: Jamaica
+  number: 388
+- code: JP
+  code3: JPN
+  flag: 🇯🇵
+  local_name: Nihon / Nippon / 日本
+  name: Japan
+  number: 392
+- code: JE
+  code3: JEY
+  flag: 🇯🇪
+  local_name: Jersey / Jersey / Jèrri
+  name: Jersey
+  number: 832
+- code: JO
+  code3: JOR
+  flag: 🇯🇴
+  local_name: Al-’Urdun / الأردن
+  name: Jordan
+  number: 400
+- code: KZ
+  code3: KAZ
+  flag: 🇰🇿
+  local_name: Qazaqstan / Қазақстан / قازاقستان / Kazakhstán / Казахстан
+  name: Kazakhstan
+  number: 398
+- code: KE
+  code3: KEN
+  flag: 🇰🇪
+  local_name: Kenya
+  name: Kenya
+  number: 404
+- code: KI
+  code3: KIR
+  flag: 🇰🇮
+  local_name: Kiribati
+  name: Kiribati
+  number: 296
+- code: KP
+  code3: PRK
+  flag: 🇰🇵
+  local_name: Chosŏn / 조선 / 朝鮮 / Bukchosŏn / 북조선
+  name: Korea (the Democratic People's Republic of)
+  number: 408
+- code: KR
+  code3: KOR
+  flag: 🇰🇷
+  local_name: Hanguk / 한국 / 韓國 / Namhan / 남한
+  name: Korea (the Republic of)
+  number: 410
+- code: KW
+  code3: KWT
+  flag: 🇰🇼
+  local_name: Dawlat ul-Kuwayt / دولة الكويت / il-ikwet / الكويت
+  name: Kuwait
+  number: 414
+- code: KG
+  code3: KGZ
+  flag: 🇰🇬
+  local_name: Kyrgyzstan / Кыргызстан / Kirgizija / Киргизия
+  name: Kyrgyzstan
+  number: 417
+- code: LA
+  code3: LAO
+  flag: 🇱🇦
+  local_name: Lao / ປະເທດລາວ
+  name: Lao People's Democratic Republic (the)
+  number: 418
+- code: LV
+  code3: LVA
+  flag: 🇱🇻
+  local_name: Latvija
+  name: Latvia
+  number: 428
+- code: LB
+  code3: LBN
+  flag: 🇱🇧
+  local_name: Lubnān / لبنان / Liban
+  name: Lebanon
+  number: 422
+- code: LS
+  code3: LSO
+  flag: 🇱🇸
+  local_name: Lesotho
+  name: Lesotho
+  number: 426
+- code: LR
+  code3: LBR
+  flag: 🇱🇷
+  local_name: Liberia
+  name: Liberia
+  number: 430
+- code: LY
+  code3: LBY
+  flag: 🇱🇾
+  local_name: Libya / ⵍⵉⴱⵢⴰ / Lībiyā / ليبيا
+  name: Libya
+  number: 434
+- code: LI
+  code3: LIE
+  flag: 🇱🇮
+  local_name: Liechtenstein
+  name: Liechtenstein
+  number: 438
+- code: LT
+  code3: LTU
+  flag: 🇱🇹
+  local_name: Lietuva
+  name: Lithuania
+  number: 440
+- code: LU
+  code3: LUX
+  flag: 🇱🇺
+  local_name: Lëtzebuerg / Luxemburg / Luxembourg
+  name: Luxembourg
+  number: 442
+- code: MO
+  code3: MAC
+  flag: 🇲🇴
+  local_name: Oumún / 澳門 / Macau
+  name: Macao
+  number: 446
+- code: MG
+  code3: MDG
+  flag: 🇲🇬
+  local_name: Madagasikara / Madagascar
+  name: Madagascar
+  number: 450
+- code: MW
+  code3: MWI
+  flag: 🇲🇼
+  local_name: Malawi / Malaŵi /
+  name: Malawi
+  number: 454
+- code: MY
+  code3: MYS
+  flag: 🇲🇾
+  local_name: Malaysia / Mǎláixīyà / 马来西亚 / Malēṣiyā / மலேசியா
+  name: Malaysia
+  number: 458
+- code: MV
+  code3: MDV
+  flag: 🇲🇻
+  local_name: Dhivehi Raajje / ދިވެހިރާއްޖެ
+  name: Maldives
+  number: 462
+- code: ML
+  code3: MLI
+  flag: 🇲🇱
+  local_name: Mali / Mali
+  name: Mali
+  number: 466
+- code: MT
+  code3: MLT
+  flag: 🇲🇹
+  local_name: Malta / Malta
+  name: Malta
+  number: 470
+- code: MH
+  code3: MHL
+  flag: 🇲🇭
+  local_name: Aorōkin M̧ajeļ
+  name: Marshall Islands (the)
+  number: 584
+- code: MQ
+  code3: MTQ
+  flag: 🇲🇶
+  local_name: Martinique
+  name: Martinique
+  number: 474
+- code: MR
+  code3: MRT
+  flag: 🇲🇷
+  local_name: Muritan / Agawec / ⵎⵓⵔⵉⵜⴰⵏ / ⴰⴳⴰⵡⵛ / Mūrītānyā / موريتانيا
+  name: Mauritania
+  number: 478
+- code: MU
+  code3: MUS
+  flag: 🇲🇺
+  local_name: Mauritius / Maurice / Moris
+  name: Mauritius
+  number: 480
+- code: YT
+  code3: MYT
+  flag: 🇾🇹
+  local_name: Mayotte
+  name: Mayotte
+  number: 175
+- code: MX
+  code3: MEX
+  flag: 🇲🇽
+  local_name: México / Mēxihco
+  name: Mexico
+  number: 484
+- code: FM
+  code3: FSM
+  flag: 🇫🇲
+  local_name: Federated States of Micronesia
+  name: Micronesia (Federated States of)
+  number: 583
+- code: MD
+  code3: MDA
+  flag: 🇲🇩
+  local_name: Moldova
+  name: Moldova (the Republic of)
+  number: 498
+- code: MC
+  code3: MCO
+  flag: 🇲🇨
+  local_name: Monaco / Múnegu
+  name: Monaco
+  number: 492
+- code: MN
+  code3: MNG
+  flag: 🇲🇳
+  local_name: Mongol Uls / Монгол Улс / ᠮᠤᠩᠭᠤᠯ / ᠤᠯᠤᠰ
+  name: Mongolia
+  number: 496
+- code: ME
+  code3: MNE
+  flag: 🇲🇪
+  local_name: Crna Gora / Црна Гора
+  name: Montenegro
+  number: 499
+- code: MS
+  code3: MSR
+  flag: 🇲🇸
+  local_name: Montserrat
+  name: Montserrat
+  number: 500
+- code: MA
+  code3: MAR
+  flag: 🇲🇦
+  local_name: Amerruk / Elmeɣrib / ⴰⵎⵔⵔⵓⴽ / ⵍⵎⵖⵔⵉⴱ / Al-maɣréb / المغرب
+  name: Morocco
+  number: 504
+- code: MZ
+  code3: MOZ
+  flag: 🇲🇿
+  local_name: Moçambique
+  name: Mozambique
+  number: 508
+- code: MM
+  code3: MMR
+  flag: 🇲🇲
+  local_name: Myanma / မြန်မာ
+  name: Myanmar
+  number: 104
+- code: NA
+  code3: NAM
+  flag: 🇳🇦
+  local_name: Namibia
+  name: Namibia
+  number: 516
+- code: NR
+  code3: NRU
+  flag: 🇳🇷
+  local_name: Nauru / Naoero
+  name: Nauru
+  number: 520
+- code: NP
+  code3: NPL
+  flag: 🇳🇵
+  local_name: Nepāl / नेपाल
+  name: Nepal
+  number: 524
+- code: NL
+  code3: NLD
+  flag: 🇳🇱
+  local_name: Nederland / Nederlân
+  name: Netherlands (the)
+  number: 528
+- code: NC
+  code3: NCL
+  flag: 🇳🇨
+  local_name: Nouvelle-Calédonie
+  name: New Caledonia
+  number: 540
+- code: NZ
+  code3: NZL
+  flag: 🇳🇿
+  local_name: New Zealand / Aotearoa
+  name: New Zealand
+  number: 554
+- code: NI
+  code3: NIC
+  flag: 🇳🇮
+  local_name: Nicaragua
+  name: Nicaragua
+  number: 558
+- code: NE
+  code3: NER
+  flag: 🇳🇪
+  local_name: Niger
+  name: Niger (the)
+  number: 562
+- code: NG
+  code3: NGA
+  flag: 🇳🇬
+  local_name: Nigeria / Nijeriya / Naigeria / Nàìjíríà
+  name: Nigeria
+  number: 566
+- code: NU
+  code3: NIU
+  flag: 🇳🇺
+  local_name: Niuē / Niue
+  name: Niue
+  number: 570
+- code: NF
+  code3: NFK
+  flag: 🇳🇫
+  local_name: Norfolk Island / Norf'k Ailen
+  name: Norfolk Island
+  number: 574
+- code: MP
+  code3: MNP
+  flag: 🇲🇵
+  local_name: Northern Mariana Islands / Notte Mariånas
+  name: Northern Mariana Islands (the)
+  number: 580
+- code: 'NO'
+  code3: NOR
+  flag: 🇳🇴
+  local_name: Norge / Noreg
+  name: Norway
+  number: 578
+- code: OM
+  code3: OMN
+  flag: 🇴🇲
+  local_name: ‘Umān / عُمان
+  name: Oman
+  number: 512
+- code: PK
+  code3: PAK
+  flag: 🇵🇰
+  local_name: Pākistān / پاکستان
+  name: Pakistan
+  number: 586
+- code: PW
+  code3: PLW
+  flag: 🇵🇼
+  local_name: Belau
+  name: Palau
+  number: 585
+- code: PS
+  code3: PSE
+  flag: 🇵🇸
+  local_name: Filasṭīn / فلسطين
+  name: Palestine, State of
+  number: 275
+- code: PA
+  code3: PAN
+  flag: 🇵🇦
+  local_name: Panamá
+  name: Panama
+  number: 591
+- code: PG
+  code3: PNG
+  flag: 🇵🇬
+  local_name: Papua New Guinea / Papua Niugini
+  name: Papua New Guinea
+  number: 598
+- code: PY
+  code3: PRY
+  flag: 🇵🇾
+  local_name: Paraguay / Paraguái
+  name: Paraguay
+  number: 600
+- code: PE
+  code3: PER
+  flag: 🇵🇪
+  local_name: Perú / Piruw
+  name: Peru
+  number: 604
+- code: PH
+  code3: PHL
+  flag: 🇵🇭
+  local_name: Pilipinas / Philippines
+  name: Philippines (the)
+  number: 608
+- code: PN
+  code3: PCN
+  flag: 🇵🇳
+  local_name: Pitcairn Islands / Pitkern Ailen
+  name: Pitcairn
+  number: 612
+- code: PL
+  code3: POL
+  flag: 🇵🇱
+  local_name: Polska
+  name: Poland
+  number: 616
+- code: PT
+  code3: PRT
+  flag: 🇵🇹
+  local_name: Portugal
+  name: Portugal
+  number: 620
+- code: PR
+  code3: PRI
+  flag: 🇵🇷
+  local_name: Puerto Rico
+  name: Puerto Rico
+  number: 630
+- code: QA
+  code3: QAT
+  flag: 🇶🇦
+  local_name: Qaṭar / قطر
+  name: Qatar
+  number: 634
+- code: MK
+  code3: MKD
+  flag: 🇲🇰
+  local_name: Severna Makedonija / Северна Македонија
+  name: Republic of North Macedonia
+  number: 807
+- code: RO
+  code3: ROU
+  flag: 🇷🇴
+  local_name: România
+  name: Romania
+  number: 642
+- code: RU
+  code3: RUS
+  flag: 🇷🇺
+  local_name: Rossiya / Rossiâ / Россия1
+  name: Russian Federation (the)
+  number: 643
+- code: RW
+  code3: RWA
+  flag: 🇷🇼
+  local_name: Rwanda
+  name: Rwanda
+  number: 646
+- code: RE
+  code3: REU
+  flag: 🇷🇪
+  local_name: Réunion
+  name: Réunion
+  number: 638
+- code: BL
+  code3: BLM
+  flag: 🇧🇱
+  local_name: Saint-Barthélemy
+  name: Saint Barthélemy
+  number: 652
+- code: SH
+  code3: SHN
+  flag: 🇸🇭
+  local_name: Saint Helena, Ascension and Tristan da Cunha
+  name: Saint Helena, Ascension and Tristan da Cunha
+  number: 654
+- code: KN
+  code3: KNA
+  flag: 🇰🇳
+  local_name: Saint Kitts and Nevis
+  name: Saint Kitts and Nevis
+  number: 659
+- code: LC
+  code3: LCA
+  flag: 🇱🇨
+  local_name: Saint Lucia
+  name: Saint Lucia
+  number: 662
+- code: MF
+  code3: MAF
+  flag: 🇲🇫
+  local_name: Saint-Martin
+  name: Saint Martin (French part)
+  number: 663
+- code: PM
+  code3: SPM
+  flag: 🇵🇲
+  local_name: Saint-Pierre et Miquelon
+  name: Saint Pierre and Miquelon
+  number: 666
+- code: VC
+  code3: VCT
+  flag: 🇻🇨
+  local_name: Saint Vincent and the Grenadines
+  name: Saint Vincent and the Grenadines
+  number: 670
+- code: WS
+  code3: WSM
+  flag: 🇼🇸
+  local_name: Samoa / Sāmoa
+  name: Samoa
+  number: 882
+- code: SM
+  code3: SMR
+  flag: 🇸🇲
+  local_name: San Marino
+  name: San Marino
+  number: 674
+- code: ST
+  code3: STP
+  flag: 🇸🇹
+  local_name: São Tomé e Príncipe
+  name: Sao Tome and Principe
+  number: 678
+- code: SA
+  code3: SAU
+  flag: 🇸🇦
+  local_name: Al-Mamlaka Al-‘Arabiyyah as Sa‘ūdiyyah / المملكة العربية السعودية
+  name: Saudi Arabia
+  number: 682
+- code: SN
+  code3: SEN
+  flag: 🇸🇳
+  local_name: Sénégal
+  name: Senegal
+  number: 686
+- code: RS
+  code3: SRB
+  flag: 🇷🇸
+  local_name: Srbija / Србија
+  name: Serbia
+  number: 688
+- code: SC
+  code3: SYC
+  flag: 🇸🇨
+  local_name: Sesel / Seychelles
+  name: Seychelles
+  number: 690
+- code: SL
+  code3: SLE
+  flag: 🇸🇱
+  local_name: Sierra Leone
+  name: Sierra Leone
+  number: 694
+- code: SG
+  code3: SGP
+  flag: 🇸🇬
+  local_name: Singapura / Singapore / Xīnjiāpō / 新加坡 / Singapur / சிங்கப்பூர்
+  name: Singapore
+  number: 702
+- code: SX
+  code3: SXM
+  flag: 🇸🇽
+  local_name: Sint Maarten
+  name: Sint Maarten (Dutch part)
+  number: 534
+- code: SK
+  code3: SVK
+  flag: 🇸🇰
+  local_name: Slovensko
+  name: Slovakia
+  number: 703
+- code: SI
+  code3: SVN
+  flag: 🇸🇮
+  local_name: Slovenija
+  name: Slovenia
+  number: 705
+- code: SB
+  code3: SLB
+  flag: 🇸🇧
+  local_name: Solomon Islands / Solomon Aelan
+  name: Solomon Islands
+  number: 90
+- code: SO
+  code3: SOM
+  flag: 🇸🇴
+  local_name: Soomaaliya / aş-Şūmāl / الصومال
+  name: Somalia
+  number: 706
+- code: ZA
+  code3: ZAF
+  flag: 🇿🇦
+  local_name: South Africa / Suid-Afrika / iNingizimu Afrika / uMzantsi Afrika / Afrika
+    Borwa / Aforika Borwa / Afurika Tshipembe / Afrika Dzonga / iNingizimu Afrika
+    / iSewula Afrika
+  name: South Africa
+  number: 710
+- code: GS
+  code3: SGS
+  name: South Georgia and the South Sandwich Islands
+  number: 239
+- code: SS
+  code3: SSD
+  flag: 🇸🇸
+  local_name: South Sudan / Sudan Kusini / Paguot Thudän
+  name: South Sudan
+  number: 728
+- code: ES
+  code3: ESP
+  flag: 🇪🇸
+  local_name: España / Espanya / Espainia / Espanha
+  name: Spain
+  number: 724
+- code: LK
+  code3: LKA
+  flag: 🇱🇰
+  local_name: Sri Lankā / ශ්‍රී ලංකාව / இலங்கை
+  name: Sri Lanka
+  number: 144
+- code: SD
+  code3: SDN
+  flag: 🇸🇩
+  local_name: As-Sudan / السودان
+  name: Sudan (the)
+  number: 729
+- code: SR
+  code3: SUR
+  flag: 🇸🇷
+  local_name: Suriname
+  name: Suriname
+  number: 740
+- code: SJ
+  code3: SJM
+  flag: 🇸🇯
+  local_name: Svalbard
+  name: Svalbard and Jan Mayen
+  number: 744
+- code: SE
+  code3: SWE
+  flag: 🇸🇪
+  local_name: Sverige
+  name: Sweden
+  number: 752
+- code: CH
+  code3: CHE
+  flag: 🇨🇭
+  local_name: Schweiz / Suisse / Svizzera / Svizra
+  name: Switzerland
+  number: 756
+- code: SY
+  code3: SYR
+  flag: 🇸🇾
+  local_name: Suriyah / سورية
+  name: Syrian Arab Republic
+  number: 760
+- code: TW
+  code3: TWN
+  flag: 🇹🇼
+  local_name: Zhōnghuá Mínguó / Táiwān / 中華民國 / 臺灣/台灣
+  name: Taiwan
+  number: 158
+- code: TJ
+  code3: TJK
+  flag: 🇹🇯
+  local_name: Tojikistan / Тоҷикистон
+  name: Tajikistan
+  number: 762
+- code: TZ
+  code3: TZA
+  flag: 🇹🇿
+  local_name: Tanzania
+  name: Tanzania, United Republic of
+  number: 834
+- code: TH
+  code3: THA
+  flag: 🇹🇭
+  local_name: Prathet Thai / ประเทศไทย
+  name: Thailand
+  number: 764
+- code: TL
+  code3: TLS
+  name: Timor-Leste
+  number: 626
+- code: TG
+  code3: TGO
+  flag: 🇹🇬
+  local_name: Togo
+  name: Togo
+  number: 768
+- code: TK
+  code3: TKL
+  flag: 🇹🇰
+  local_name: Tokelau
+  name: Tokelau
+  number: 772
+- code: TO
+  code3: TON
+  flag: 🇹🇴
+  local_name: Tonga
+  name: Tonga
+  number: 776
+- code: TT
+  code3: TTO
+  flag: 🇹🇹
+  local_name: Trinidad and Tobago
+  name: Trinidad and Tobago
+  number: 780
+- code: TN
+  code3: TUN
+  flag: 🇹🇳
+  local_name: Tunes / ⵜⵓⵏⵙ / Tūns / تونس
+  name: Tunisia
+  number: 788
+- code: TR
+  code3: TUR
+  flag: 🇹🇷
+  local_name: Türkiye
+  name: Turkey
+  number: 792
+- code: TM
+  code3: TKM
+  flag: 🇹🇲
+  local_name: Türkmenistan
+  name: Turkmenistan
+  number: 795
+- code: TC
+  code3: TCA
+  flag: 🇹🇨
+  local_name: Turks and Caicos Islands
+  name: Turks and Caicos Islands (the)
+  number: 796
+- code: TV
+  code3: TUV
+  flag: 🇹🇻
+  local_name: Tuvalu
+  name: Tuvalu
+  number: 798
+- code: UG
+  code3: UGA
+  flag: 🇺🇬
+  local_name: Uganda
+  name: Uganda
+  number: 800
+- code: UA
+  code3: UKR
+  flag: 🇺🇦
+  local_name: Ukraїna / Україна
+  name: Ukraine
+  number: 804
+- code: AE
+  code3: ARE
+  flag: 🇦🇪
+  local_name: Al-’Imārat Al-‘Arabiyyah Al-Muttaḥidah / الإمارات العربيّة المتّحدة
+  name: United Arab Emirates (the)
+  number: 784
+- code: GB
+  code3: GBR
+  flag: 🇬🇧
+  local_name: United Kingdom / Y Deyrnas Unedig / Unitit Kinrick / Rìoghachd Aonaichte
+    / Ríocht Aontaithe / An Rywvaneth Unys
+  name: United Kingdom of Great Britain and Northern Ireland (the)
+  number: 826
+- code: UM
+  code3: UMI
+  name: United States Minor Outlying Islands (the)
+  number: 581
+- code: US
+  code3: USA
+  flag: 🇺🇸
+  local_name: United States or America / Estados Unidos / États-Unis / ‘Amelika Hui
+    Pū ‘ia
+  name: United States of America (the)
+  number: 840
+- code: UY
+  code3: URY
+  flag: 🇺🇾
+  local_name: Uruguay
+  name: Uruguay
+  number: 858
+- code: UZ
+  code3: UZB
+  flag: 🇺🇿
+  local_name: O‘zbekiston / Ўзбекистон
+  name: Uzbekistan
+  number: 860
+- code: VU
+  code3: VUT
+  flag: 🇻🇺
+  local_name: Vanuatu
+  name: Vanuatu
+  number: 548
+- code: VE
+  code3: VEN
+  flag: 🇻🇪
+  local_name: Venezuela
+  name: Venezuela (Bolivarian Republic of)
+  number: 862
+- code: VN
+  code3: VNM
+  flag: 🇻🇳
+  local_name: Việt Nam
+  name: Viet Nam
+  number: 704
+- code: VG
+  code3: VGB
+  flag: 🇻🇬
+  local_name: British Virgin Islands
+  name: Virgin Islands (British)
+  number: 92
+- code: VI
+  code3: VIR
+  name: Virgin Islands (U.S.)
+  number: 850
+- code: WF
+  code3: WLF
+  flag: 🇼🇫
+  local_name: Wallis-et-Futuna / Uvea mo Futuna
+  name: Wallis and Futuna
+  number: 876
+- code: EH
+  code3: ESH
+  name: Western Sahara
+  number: 732
+- code: YE
+  code3: YEM
+  flag: 🇾🇪
+  local_name: Al-Yaman / اليمن
+  name: Yemen
+  number: 887
+- code: ZM
+  code3: ZMB
+  flag: 🇿🇲
+  local_name: Zambia
+  name: Zambia
+  number: 894
+- code: ZW
+  code3: ZWE
+  flag: 🇿🇼
+  local_name: Zimbabwe
+  name: Zimbabwe
+  number: 716
+- code: AX
+  code3: ALA
+  flag: 🇦🇽
+  local_name: Åland / Ahvenanmaa
+  name: Åland Islands
+  number: 248
+
