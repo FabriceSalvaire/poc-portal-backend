@@ -61,10 +61,10 @@ def send_email(
         smtp_options["password"] = settings.SMTP_PASSWORD
     print(smtp_options)
     response = message.send(to=email_to, render=environment, smtp=smtp_options)
-    _module_logger.warn(f"send email result: {response}")
+    _module_logger.warning(f"send email result: {response}")
     # Fixme:
     if response.status_code not in [250, ]:
-        _module_logger.warn(f"Failed to send email: {smtp_options} {response}")
+        _module_logger.warning(f"Failed to send email: {smtp_options} {response}")
 
 ####################################################################################################
 
