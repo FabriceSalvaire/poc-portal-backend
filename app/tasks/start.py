@@ -18,28 +18,19 @@
 #
 ####################################################################################################
 
-# http://www.pyinvoke.org
+####################################################################################################
+
+import io
+import logging
+
+from invoke import task
+
+from tenacity import after_log, before_log, retry, stop_after_attempt, wait_fixed
 
 ####################################################################################################
 
-from invoke import task, Collection
-# import sys
-
-####################################################################################################
-
-# from . import clean
-# from . import doc
-# from . import release
-from . import country
-from . import database
-from . import git
-from . import start
-
-ns = Collection()
-# ns.add_collection(Collection.from_module(clean))
-# ns.add_collection(Collection.from_module(doc))
-# ns.add_collection(Collection.from_module(release))
-ns.add_collection(Collection.from_module(country))
-ns.add_collection(Collection.from_module(database))
-ns.add_collection(Collection.from_module(git))
-ns.add_collection(Collection.from_module(start))
+# @task()
+# def celeryworker_pre_start(
+#         ctx,
+# ):
+#     pass
