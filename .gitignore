@@ -32,8 +32,6 @@ recapatcha-account.txt
 
 app/alembic/versions/
 
-app/app/tests/
-app/app/tests_pre_start.py
 # doc/
 .travis.yml
 
