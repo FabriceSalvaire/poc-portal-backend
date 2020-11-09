@@ -27,16 +27,10 @@
 ####################################################################################################
 
 from logging.config import fileConfig
-import os
+# import os
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
-
-#! from .Config.ConfigFile import ConfigFile
-#! from .Database import DatabaseMixin
-#! from .Common.Orm.ServerDatabase import ServerDatabase
-
-#! config_file = ConfigFile()
 
 ####################################################################################################
 

@@ -18,30 +18,38 @@
 #
 ####################################################################################################
 
-####################################################################################################
-
-import logging
-
-from app.db.init_db import init_db
-from app.db.session import SessionLocal
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+__all__ = [
+    'datetime_to_str',
+    'from_timestamp',
+    'now_to_str',
+    'str_to_datetime',
+]
 
 ####################################################################################################
 
-def init() -> None:
-    db = SessionLocal()
-    init_db(db)
+from datetime import datetime
 
 ####################################################################################################
 
-def main() -> None:
-    logger.info("Creating initial data")
-    init()
-    logger.info("Initial data created")
+_DATETIME_FORMAT = '%Y-%m-%d %H:%M:%S'
+
+# Fixme: datetime.isoformat
+def datetime_to_str(date):
+    return date.strftime(_DATETIME_FORMAT)
+
+def str_to_datetime(date):
+    _ = str(date).strip()
+    return datetime.strptime(_, _DATETIME_FORMAT)
 
 ####################################################################################################
 
-if __name__ == "__main__":
-    main()
+def now_to_str(time=True):
+    if time:
+        return datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+    else:
+        return datetime.now().strftime('%Y-%m-%d')
+
+####################################################################################################
+
+def from_timestamp(_):
+    return datetime.fromtimestamp(int(_))

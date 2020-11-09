@@ -54,6 +54,7 @@ uvicorn = {extras = ["standard"], version = "^0.12.2"}
 # requests = "^2.23.0"
 # tenacity = "^6.1.0"
 
+tenacity = "^6.2.0"
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.4"
 invoke = "^1.4.1"

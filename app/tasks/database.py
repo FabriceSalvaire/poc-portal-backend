@@ -21,13 +21,26 @@
 ####################################################################################################
 
 import io
+import logging
 import os
 import subprocess
-import sys
 
 from invoke import task
 
-#! from .Common.Datetime import now_to_str
+from tenacity import after_log, before_log, retry, stop_after_attempt, wait_fixed
+
+from app.core.config import settings
+from app.core.datetime import now_to_str
+from app.core.logging import setup_logging
+from app.db.init_db import init_db
+from app.db.session import SessionLocal, engine
+
+####################################################################################################
+
+logging_config_file = settings.LOGGING_CONFIG
+logger = setup_logging(config_file=logging_config_file)
+# logging.basicConfig(level=logging.INFO)
+# logger = logging.getLogger(__name__)
 
 ####################################################################################################
 
@@ -36,46 +49,86 @@ from invoke import task
 ####################################################################################################
 
 @task()
-def alembic_revision(ctx, message):
-    """Create a Alembic migration script"""
-    ctx.run('alembic revision --autogenerate -m "{}"'.format(message))
-
-####################################################################################################
-
-@task()
-def alembic_upgrade(ctx):
-    """Run alembic upgrade"""
-    ctx.run('alembic upgrade head')
-
-####################################################################################################
-
-@task()
-def create_postgresql_database(
+def test_connection(
         ctx,
-        host='localhost',
-        user='postgres',
-        database='donate',
-        owner='donate',
+):
+    """Test database connection"""
+
+    max_tries = 60 * 5  # 5 minutes
+    wait_seconds = 1
+
+    @retry(
+        stop=stop_after_attempt(max_tries),
+        wait=wait_fixed(wait_seconds),
+        before=before_log(logger, logging.INFO),
+        after=after_log(logger, logging.WARN),
+    )
+    def init() -> None:
+        try:
+            db = SessionLocal()
+            # Try to create session to check if DB is awake
+            db.execute("SELECT 1")
+        except Exception as e:
+            logger.error(e)
+            raise e
+
+    logger.info("Initializing service")
+    init()
+    logger.info("Service finished initializing")
+
+####################################################################################################
+
+@task()
+def create(
+        ctx,
         drop=False,
 ):
+    """Create the database"""
+
+    postgres_server = settings.POSTGRES_SERVER
+    postgres_db = settings.POSTGRES_DB
+    postgres_user = settings.POSTGRES_USER
+    postgres_password = settings.POSTGRES_PASSWORD
+
+    # db = SessionLocal()
+    # if drop:
+    #     dump_postgresql(ctx)
+    #     sql = f'DROP DATABASE IF EXISTS "{postgres_db}";'
+    #     db.execute(sql)
 
     if drop:
-        dump_postgresql(ctx)
-        sql = f'DROP DATABASE IF EXISTS "{database}";'
+        # dump_postgresql(ctx)
+        sql = f'DROP DATABASE IF EXISTS "{postgres_db}";'
     else:
         sql = ''
 
     sql += (
-        f'CREATE DATABASE "{database}"'
-        f'  WITH OWNER = "{owner}"'
+        f'CREATE DATABASE "{postgres_db}"'
+        f'  WITH OWNER = "{postgres_user}"'
         f'  TEMPLATE = template0'
         f'  ENCODING = "UTF8"'
         f'  CONNECTION LIMIT = -1'
         f';'
     )
 
+    # How to change the default postgres password
+    #
+    # To disabled password
+    #   /var/lib/pgsql/data/pg_hba.conf
+    #     local   all   postgres   trust
+    #
+    # psql postgres postgres
+    # \password postgres
+    # \q
+
+    # command = f'psql -h {postgres_server} -U {postgres_user}'
+    command = f'psql -h {postgres_server} -U postgres'
+    print(command)
+    print(sql)
+
     string_io = io.StringIO(sql)
-    ctx.run(f'psql -h {host} -U {user}', in_stream=string_io)
+    logger.info("Create database")
+    ctx.run(command, in_stream=string_io)
 
     # su - postgres
     # ctx.run('createuser --pwprompt donate')
@@ -86,50 +139,95 @@ def create_postgresql_database(
 ####################################################################################################
 
 @task()
-def dump_postgresql(
+def alembic_revision(ctx, message):
+    """Create a Alembic migration script"""
+    logger.warning('Run "create --drop" before to create the first revision !')
+    ctx.run('alembic revision --autogenerate -m "{}"'.format(message))
+
+####################################################################################################
+
+@task()
+def alembic_upgrade(ctx):
+    """Run alembic upgrade"""
+    logger.info("Upgrade database schema")
+    ctx.run('alembic upgrade head')
+
+####################################################################################################
+
+@task()
+def initialise(ctx):
+    """Create initial data"""
+    logger.info("Creating initial data")
+    db = SessionLocal()
+    init_db(db)
+    logger.info("Initial data created")
+
+####################################################################################################
+
+@task()
+def bootstrap(
         ctx,
-        host='localhost',
-        username='donate',
-        database='donate',
+        drop=False,
 ):
+    create(ctx, drop)
+    alembic_upgrade(ctx)
+    initialise(ctx)
+
+####################################################################################################
+
+@task()
+def dump(
+        ctx,
+):
+    """Dump a PostgreSQL Database."""
+
+    postgres_server = settings.POSTGRES_SERVER
+    postgres_db = settings.POSTGRES_DB
+    postgres_user = settings.POSTGRES_USER
+    postgres_password = settings.POSTGRES_PASSWORD
 
     date = now_to_str()
 
     command = (
         'pg_dump',
-        f'--host={host}',
-        '-U', username,
+        f'--host={postgres_server}',
+        '-U', postgres_user,
         '--clean',
         '--create',
-        f'--file={database}-{date}.sql.gz',
+        f'--file={postgres_db}-{date}.sql.gz',
         '--compress=9',
         'donate',
     )
+    print(' '.join(command))
+    # Fixme: ???
     process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
 
 ####################################################################################################
 
 @task()
-def dump_postgresql_to_json(
+def dump_to_json(
         ctx,
         host='localhost',
         username='donate',
         database='donate',
 ):
+    """Dump a PostgreSQL Database to JSON."""
 
-    """Dump a PostgreSQL Database to JSON.
+    postgres_server = settings.POSTGRES_SERVER
+    postgres_db = settings.POSTGRES_DB
+    postgres_user = settings.POSTGRES_USER
+    postgres_password = settings.POSTGRES_PASSWORD
 
-    """
-
+    tables = engine.table_names()
     # donate=> \d
     # public|alembic_version|table|donate
     # public|log|table|donate
 
     command = (
         'psql',
-        f'--host={host}',
-        '-U', username,
-        database,
+        f'--host={postgres_server}',
+        '-U', postgres_user,
+        postgres_db,
     )
     process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
 
@@ -152,17 +250,12 @@ def dump_postgresql_to_json(
 
     date = now_to_str()
 
-    tables = (
-        'alembic_version',
-        # 'log',
-    )
-
     commands = [
         r'\pset format unaligned',
         r'\t on',
     ]
     commands.extend([
-        f'with t as (select * from {table}) select json_agg(t) from t \g donate-{table}-{date}.json'
+        f'with t as (select * from {postgres_db}.public.{table}) select json_agg(t) from t \g donate-{table}-{date}.json'
         for table in tables
     ])
     command = os.linesep.join(commands)

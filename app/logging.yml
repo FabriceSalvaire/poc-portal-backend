@@ -72,8 +72,8 @@ loggers:
 
   sqlalchemy:
     # level: DEBUG
-    level: INFO
-    # level: WARNING
+    # level: INFO
+    level: WARNING
     handlers: [console-stderr]
 
   uvicorn:
