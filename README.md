@@ -38,15 +38,16 @@ Browser > Web Frontend
 
 See also `app/deployment/postgresql/setup.sh`
 
+Start PostgreSQL
 ```
-# as root
-
-# Start PostgreSQL
 systemctl start postgresql
+```
 
+Then create a database user
+```
+# from root
 su - postgres
 createuser --pwprompt USER
-createdb --owner=USER --encoding=UTF8 --template=template0 DATABASE
 ```
 
 ### Start a Stripe Webhook forwarder (dev only)
@@ -113,9 +114,8 @@ poetry install
 # Setup the environment
 source setenv.sh
 
-# Initialise database
-inv database.alembic-upgrade
-python3 app/initial_data.py
+# Create and initialise database (require postgres login)
+inv database.bootstrap
 
 # Start Uvicorn
 uvicorn app.main:app --reload
@@ -133,6 +133,7 @@ BROWSER="google-chrome" yarn start
 * **Create a schema revision** `database.alembic-revision`
 * **Upgrade database** `database.alembic-upgrade`
 * **Delete donations** `database.delete-donations`
+* ...
 
 ### Deploy on production
 
