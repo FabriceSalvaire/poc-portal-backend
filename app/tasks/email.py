@@ -20,30 +20,43 @@
 
 ####################################################################################################
 
+from invoke import task
+
 # https://github.com/lavr/python-emails
 # https://python-emails.readthedocs.io
-import emails
+# import emails
+
+from app.core.config import settings
+from app.utils import send_test_email
 
 ####################################################################################################
 
-sender = '...'
+### def _send_test_email():
+###     sender = settings.EMAILS_FROM_EMAIL
+###
+###     message = emails.Message(
+###         subject="Test",
+###         text="just a test",
+###         # html='',
+###         mail_from=("John Doe", sender),
+###     )
+###     smtp_options = {
+###         "host": settings.SMTP_HOST,
+###         "port": settings.SMTP_PORT,
+###     }
+###     # smtp_options["tls"] = True
+###     # smtp_options["user"] = ""
+###     # smtp_options["password"] = ""
+###
+###     environment = {}
+###     response = message.send(to=sender, render=environment, smtp=smtp_options)
+###     print(response)
+###     if response.status_code not in [250, ]:
+###         print('Failed')
 
-message = emails.Message(
-    subject="Test",
-    text="just a test",
-    # html='',
-    mail_from=("Fabrice", sender),
-)
-smtp_options = {
-    "host": "smtp.orange.fr",
-    "port": 25,
-}
-# smtp_options["tls"] = True
-# smtp_options["user"] = ""
-# smtp_options["password"] = ""
+####################################################################################################
 
-environment = {}
-response = message.send(to=sender, render=environment, smtp=smtp_options)
-print(response)
-if response.status_code not in [250, ]:
-    print('Failed')
+@task()
+def send_test_email(ctx):
+    sender = settings.EMAILS_FROM_EMAIL
+    send_test_email(sender)

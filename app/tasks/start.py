@@ -20,12 +20,9 @@
 
 ####################################################################################################
 
-import io
-import logging
+import os
 
 from invoke import task
-
-from tenacity import after_log, before_log, retry, stop_after_attempt, wait_fixed
 
 ####################################################################################################
 
@@ -34,3 +31,13 @@ from tenacity import after_log, before_log, retry, stop_after_attempt, wait_fixe
 #         ctx,
 # ):
 #     pass
+# python /app/app/celeryworker_pre_start.py
+# celery worker -A app.worker -l info -Q main-queue -c 1
+
+####################################################################################################
+
+@task()
+def dev_server(ctx, settings="dev.env"):
+    """Start a dev server"""
+    os.putenv("BACKEND_SETTINGS_PATH", settings)
+    ctx.run("uvicorn app.main:app --reload")
