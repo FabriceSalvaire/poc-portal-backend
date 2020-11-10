@@ -131,8 +131,8 @@ def create(
     ctx.run(command, in_stream=string_io)
 
     # su - postgres
-    # ctx.run('createuser --pwprompt donate')
-    # ctx.run('createdb --owner=donate --encoding=UTF8 --template=template0 donate')
+    # ctx.run('createuser --pwprompt {postgres_user}')
+    # ctx.run('createdb --owner={postgres_user} --encoding=UTF8 --template=template0 {postgres_db}')
 
     # \dT show tables
 
@@ -169,6 +169,7 @@ def bootstrap(
         ctx,
         drop=False,
 ):
+    """Bootstrap database"""
     create(ctx, drop)
     alembic_upgrade(ctx)
     initialise(ctx)
