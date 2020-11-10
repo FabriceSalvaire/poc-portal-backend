@@ -24,6 +24,8 @@ app/dev.env
 app/secret_env.sh
 recapatcha-account.txt
 
+app/app/data/country.json
+
 ####################################################################################################
 #
 # NOT YED COMMITED !!!
