@@ -20,12 +20,17 @@
 
 ####################################################################################################
 
-import os
 from pathlib import Path
-import secrets
 from typing import Any, Dict, List, Optional, Union
+import logging
+import os
+import secrets
 
 from pydantic import AnyHttpUrl, BaseSettings, EmailStr, HttpUrl, PostgresDsn, validator
+
+####################################################################################################
+
+__module_logger = logging.getLogger(__name__)
 
 ####################################################################################################
 
@@ -130,7 +135,11 @@ class Settings(BaseSettings):
 backend_settings_path = "BACKEND_SETTINGS_PATH"
 backend_settings_path_default = "prod.env"
 env_file = Path(os.environ.get(backend_settings_path, backend_settings_path_default)).absolute()
-if not env_file.exists():
+if env_file.exists():
+    # __module_logger.info()  # Fixme: not yet configured
+    print(f"Load settings from {env_file}")
+else:
     raise NameError(f"Environment file {env_file} not found")
+
 
 settings = Settings(_env_file=env_file, _env_file_encoding="utf-8")
