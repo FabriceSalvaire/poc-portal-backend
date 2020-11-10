@@ -41,6 +41,7 @@ def random_email() -> str:
 ####################################################################################################
 
 def get_superuser_token_headers(client: TestClient) -> Dict[str, str]:
+    """Login as superuser and return authorization header"""
     login_data = {
         "username": settings.FIRST_SUPERUSER,
         "password": settings.FIRST_SUPERUSER_PASSWORD,

@@ -19,6 +19,22 @@
 ####################################################################################################
 
 ####################################################################################################
+#
+# https://docs.pytest.org/en/stable
+# https://docs.pytest.org/en/stable/fixture.html#scope-sharing-fixtures-across-classes-modules-packages-or-session
+#
+# Fixture scopes
+#   Fixtures are created when first requested by a test, and are destroyed based on their scope:
+#
+#   function: the default scope, the fixture is destroyed at the end of the test.
+#   class:    the fixture is destroyed during teardown of the last test in the class.
+#   module:   the fixture is destroyed during teardown of the last test in the module.
+#   package:  the fixture is destroyed during teardown of the last test in the package.
+#   session:  the fixture is destroyed at the end of the test session.
+#
+####################################################################################################
+
+####################################################################################################
 
 from typing import Dict, Generator
 
@@ -33,11 +49,13 @@ from app.tests.utils.user import authentication_token_from_email
 from app.tests.utils.utils import get_superuser_token_headers
 
 ####################################################################################################
+####################################################################################################
 
 @pytest.fixture(scope="session")
 def db() -> Generator:
     yield SessionLocal()
 
+####################################################################################################
 ####################################################################################################
 
 @pytest.fixture(scope="module")
