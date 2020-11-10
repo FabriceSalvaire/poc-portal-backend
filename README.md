@@ -145,6 +145,8 @@ See `app/deployment/` for Nginx and systemd configuration.
 
 Open http://localtest.me:8000/docs
 
+*read more on "localtest.me" domain at https://weblogs.asp.net/owscott/introducing-testing-domain-localtest-me*
+
 ## Test a donation
 
 **Note:** Stripe will check the url look like an url ...
