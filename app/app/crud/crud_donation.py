@@ -26,7 +26,7 @@
 
 import logging
 
-from typing import List
+# from typing import List
 
 from fastapi.encoders import jsonable_encoder
 from sqlalchemy.orm import Session
@@ -104,7 +104,7 @@ class CrudDonation(CrudBase[Donation, DonationCreate, DonationUpdate]):
         # print(donator_create)
         obj_in_data = jsonable_encoder(donation_create)
 
-        _module_logger.info(f"Create donation\n  {donation_create}\n  {donator_create}")
+        _module_logger.info(f"Create donation\n  DonationCreate = {donation_create}\n\n  DonatorCreate = {donator_create}")
 
         # print(type(donator_create), donator_create)
         #  <class 'app.schemas.donation.DonatorCreate'>

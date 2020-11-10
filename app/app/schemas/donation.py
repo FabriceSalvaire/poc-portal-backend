@@ -23,9 +23,9 @@
 from datetime import datetime
 from typing import List, Optional, ForwardRef
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, constr, root_validator
 
-from ..models.donation import DonatorType, PaymentStatus
+from ..models.donation import DonatorType, DonationOccurrence, PaymentMethod, PaymentStatus
 
 ####################################################################################################
 
@@ -36,8 +36,21 @@ from ..models.donation import DonatorType, PaymentStatus
 # Shared properties
 class DonatorBase(BaseModel):
     donator_type: DonatorType
-    name: str
     email: EmailStr
+    name: str
+    forname: Optional[str] = None  # null for organisation !
+    address: str
+    complement: Optional[str] = None
+    zip_code: str
+    country_code3: constr(regex=r'^[A-Z][A-Z][A-Z]$')
+
+    @root_validator
+    def check_forname(cls, values):
+        donator_type = values.get('donator_type')
+        forname = values.get('forname')
+        if donator_type == DonatorType.individual and not forname:
+            raise ValueError('forname is required for individual')
+        return values
 
 ####################################################################################################
 
@@ -48,8 +61,14 @@ class DonatorCreate(DonatorBase):
 ####################################################################################################
 
 # Properties to receive on donator update
-class DonatorUpdate(DonatorBase):
-    pass
+class DonatorUpdate(BaseModel):
+    email: EmailStr = None
+    name: str = None
+    forname: Optional[str] = None
+    address: str = None
+    complement: Optional[str] = None
+    zip_code: str = None
+    country_code3: constr(regex=r'^[A-Z][A-Z][A-Z]$') = None
 
 ####################################################################################################
 
@@ -76,23 +95,26 @@ class DonatorInDb(DonatorInDbBase):
 ####################################################################################################
 
 # Shared properties
-class DonationBase(BaseModel):
+class DonationBase(DonatorBase):   # BaseModel
     date: datetime
+    donation_occurrence: DonationOccurrence   # = DonationOccurrence.once
     int_amount: int
+    payment_method: PaymentMethod   # = PaymentMethod.card
 
 ####################################################################################################
 
 # Properties to receive on donation creation
-class DonationCreate(DonatorBase, DonationBase):
+class DonationCreate(DonationBase):
     callback_url: Optional[str] = None   # else use "Refere" HTTP header
     success_suffix_url: Optional[str] = "/success.html"
     cancel_suffix_url: Optional[str] = "/cancel.html"
+    captcha: str
 
 ####################################################################################################
 
 # Properties to receive on donation update
-class DonationUpdate(DonationBase):
-    pass
+class DonationUpdate(BaseModel):
+    payment_status: PaymentStatus = None
 
 ####################################################################################################
 
