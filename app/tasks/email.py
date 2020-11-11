@@ -93,8 +93,8 @@ def compile_mjml(ctx, watch=False):
         command += [SRC_PATH.joinpath("*.mjml")]
     command += [
         "--output", BUILD_PATH,
-        "--config.beautify",
-        # "--config.minify",
+        # g"--config.beautify",
+        "--config.minify",
     ]
     command = " ".join([str(_) for _ in command])
     print(command)
