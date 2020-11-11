@@ -2,6 +2,12 @@
 
 [[_TOC_]]
 
+### Introduction
+
+* Python dependencies are managed by [Poetry](https://python-poetry.org), see [pyproject.toml](pyproject.toml)
+* Development and administration tools are implemented as [Invoke](http://www.pyinvoke.org) tasks
+  Run the command ```invoke -l``` or ```inv -l``` to get the list of available tasks
+
 ### Configurations
 
 * **Global settings** `prod.env`
