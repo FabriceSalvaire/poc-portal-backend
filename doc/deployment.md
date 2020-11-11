@@ -142,6 +142,10 @@ Open http://localtest.me:8000/docs
 
 *read more on "localtest.me" domain at https://weblogs.asp.net/owscott/introducing-testing-domain-localtest-me*
 
+***Note on recommended tools to interact with the REST API:**
+* [HTTPie](https://httpie.io) — a user-friendly command-line HTTP client for the API era
+* [curl](https://curl.se) — a command line tool and library for transferring data with URLs
+
 ## Test a donation
 
 **Note:** Stripe will check the url look like an url ...
