@@ -20,6 +20,8 @@
 
 ####################################################################################################
 
+from pathlib import Path
+
 from invoke import task
 
 # https://github.com/lavr/python-emails
@@ -28,6 +30,13 @@ from invoke import task
 
 from app.core.config import settings
 from app.utils import send_test_email
+
+####################################################################################################
+
+APP_PATH = Path(__file__).parents[1]
+TEMPLATE_PATH = APP_PATH.joinpath("app", "email-templates")
+SRC_PATH = TEMPLATE_PATH.joinpath("src")
+BUILD_PATH = TEMPLATE_PATH.joinpath("build")
 
 ####################################################################################################
 
@@ -60,3 +69,39 @@ from app.utils import send_test_email
 def send_test_email(ctx):
     sender = settings.EMAILS_FROM_EMAIL
     send_test_email(sender)
+
+####################################################################################################
+
+@task()
+def compile_mjml(ctx, watch=False):
+    # https://mjml.io/documentation/#command-line-interface
+    # -r, --read      Compile MJML File(s)                                 [tableau]
+    # -m, --migrate   Migrate MJML3 File(s)                                [tableau]
+    # -v, --validate  Run validator on File(s)                             [tableau]
+    # -w, --watch     Watch and compile MJML File(s) when modified         [tableau]
+    # -i, --stdin     Compiles MJML from input stream
+    # -s, --stdout    Output HTML to stdout
+    # -o, --output    Filename/Directory to output compiled files
+    #                                                         [chaîne de caractères]
+    # -c, --config    Option to pass to mjml-core
+    command = [
+        APP_PATH.joinpath("node_modules", ".bin", "mjml"),
+    ]
+    if watch:
+        command += ["--watch", SRC_PATH]
+    else:
+        command += [SRC_PATH.joinpath("*.mjml")]
+    command += [
+        "--output", BUILD_PATH,
+        "--config.beautify",
+        # "--config.minify",
+    ]
+    command = " ".join([str(_) for _ in command])
+    print(command)
+    ctx.run(command)
+
+####################################################################################################
+
+# @task()
+# def xdg_open(ctx):
+#     ctx.run(f"xdg-open {BUILD_PATH}")

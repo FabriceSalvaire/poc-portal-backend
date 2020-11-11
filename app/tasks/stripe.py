@@ -26,11 +26,48 @@ from .common import load_settings
 
 ####################################################################################################
 
+### class StripeCliWrapper:
+###
+###     ##############################################
+###
+###     def __init__(self, stripe="stripe"):
+###         self._stripe = stripe
+###
+###     ##############################################
+###
+###     # stripe config --list
+###
+###     ##############################################
+###
+###     def stripe_login(self):
+###         """Require to authenticate in browser"""
+###         command = (
+###             self._stripe,
+###             "login",
+###             # "--interactive",
+###             # "--project-name=",
+###             # "--api-key=",    # sk_... or use env STRIPE_API_KEY
+###         )
+###         subprocess.call(command, shell=True)
+###
+###     ##############################################
+###
+###     def stripe_listen(self, endpoint_url="localhost:8000/webhook/"):
+###         """Note: it is a daemon like command"""
+###         command = (self._stripe, "listen", "--forward-to", endpoint_url)
+###         subprocess.call(command, shell=True)
+
+####################################################################################################
+
 @task()
 def forward_webhook(ctx, env_path="./dev.env"):
     """Forward Stripe webhook"""
     settings = load_settings(env_path)
     host = settings.SERVER_HOST
     port = settings.SERVER_PORT
-    url = "/".join((settings.API_V1_STR, "stripe_webhook"))
-    ctx.run(f"stripe listen --forward-to {host}:{port}/{url}")
+    url = "/".join((settings.API_V1_STR, "stripe_webhook/"))
+    # Fixme: take care to trailing / else
+    #  uvicorn.access - httptools_impl.send - INFO - 127.0.0.1:39284 - "POST /api/v1/stripe_webhook HTTP/1.1" 307
+    command = f"stripe listen --forward-to {host}:{port}{url}"
+    print(command)
+    ctx.run(command)

@@ -22,7 +22,10 @@
 
 from invoke import task
 
+import uvicorn
+
 from .common import load_settings
+from .database import test_connection
 
 ####################################################################################################
 
@@ -36,9 +39,17 @@ from .common import load_settings
 
 ####################################################################################################
 
-@task()
+@task(test_connection)
 def dev_server(ctx, env_path="./dev.env"):
     """Start a dev server"""
-    settings = load_settings(env_path)
-    port = settings.SERVER_PORT
-    ctx.run(f"uvicorn app.main:app --reload --port ${port}")
+    if ctx.database_connection:
+        settings = load_settings(env_path)
+        # command = f"uvicorn --port {port} --reload app.main:app"
+        # ctx.run(command)
+        uvicorn.run(
+            "app.main:app",
+            host="127.0.0.1",
+            port=settings.SERVER_PORT,
+            reload=True,
+            # log_level="info",
+        )

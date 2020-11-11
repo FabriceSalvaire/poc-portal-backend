@@ -51,11 +51,10 @@ logger = setup_logging(config_file=logging_config_file)
 @task()
 def test_connection(
         ctx,
+        max_tries=1,   # seconds
+        wait_seconds=1,
 ):
     """Test database connection"""
-
-    max_tries = 60 * 5  # 5 minutes
-    wait_seconds = 1
 
     @retry(
         stop=stop_after_attempt(max_tries),
@@ -68,13 +67,14 @@ def test_connection(
             db = SessionLocal()
             # Try to create session to check if DB is awake
             db.execute("SELECT 1")
+            ctx.database_connection = True
+            logger.info("Database connection is working")
         except Exception as e:
+            ctx.database_connection = False
             logger.error(e)
-            raise e
+            logger.error("Could not connect to database")
 
-    logger.info("Initializing service")
     init()
-    logger.info("Service finished initializing")
 
 ####################################################################################################
 

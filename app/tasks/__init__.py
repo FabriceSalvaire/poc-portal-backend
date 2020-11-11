@@ -32,6 +32,7 @@ from invoke import task, Collection
 # from . import release
 from . import country
 from . import database
+from . import email
 from . import git
 from . import start
 from . import stripe
@@ -42,6 +43,7 @@ ns = Collection()
 # ns.add_collection(Collection.from_module(release))
 ns.add_collection(Collection.from_module(country))
 ns.add_collection(Collection.from_module(database))
+ns.add_collection(Collection.from_module(email))
 ns.add_collection(Collection.from_module(git))
 ns.add_collection(Collection.from_module(start))
 ns.add_collection(Collection.from_module(stripe))
