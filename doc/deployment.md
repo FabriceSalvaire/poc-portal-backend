@@ -1,21 +1,28 @@
-## Deployment
+# Deployment
 
 [[_TOC_]]
 
-### Introduction
+## Introduction
 
 * Python dependencies are managed by [Poetry](https://python-poetry.org), see [pyproject.toml](app/pyproject.toml)
 * Development and administration tools are implemented as [Invoke](http://www.pyinvoke.org) tasks
-  Run the command ```invoke -l``` or ```inv -l``` to get the list of available tasks
+  Run the command ```invoke -l``` or ```inv -l``` to get the list of available tasks.
 
-### Configurations
+<!-- ## Invoke Tasks -->
+
+<!-- * **Create a schema revision** `database.alembic-revision` -->
+<!-- * **Upgrade database** `database.alembic-upgrade` -->
+<!-- * **Delete donations** `database.delete-donations` -->
+<!-- * ... -->
+
+## Configurations
 
 * **Global settings** `prod.env`
 	Its path is set using the env `BACKEND_SETTINGS_PATH`
 * **Logging** `logging.yml`
 	Its path is set in the `.env` file
 
-### Create a database on PostgreSQL
+## Create a database on PostgreSQL
 
 See also `app/deployment/postgresql/setup.sh`
 
@@ -31,7 +38,7 @@ su - postgres
 createuser --pwprompt USER
 ```
 
-### Start a Stripe Webhook forwarder (dev only)
+## Start a Stripe Webhook forwarder (dev only)
 
 See also `app/app/stripe/webhook.py`
 
@@ -90,7 +97,7 @@ stripe listen --forward-to localhost:8000/api/v1/stripe_webhook/
    2020-10-27 13:48:09  <--  [404] POST http://localhost:8000/stripe_webhook/ [evt_1HgYxPBKQhCtA3D9ro1Z9V1b]
    ```
 
-### Start dev server
+## Start dev server
 
 ```sh
 # Go to backend source directory
@@ -123,14 +130,7 @@ cd checkout-frontend
 BROWSER="google-chrome" yarn start
 ```
 
-### Invoke Tasks
-
-* **Create a schema revision** `database.alembic-revision`
-* **Upgrade database** `database.alembic-upgrade`
-* **Delete donations** `database.delete-donations`
-* ...
-
-### Deploy on production
+## Deploy on production
 
 See `app/deployment/` for Nginx and systemd configuration.
 
