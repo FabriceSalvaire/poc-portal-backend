@@ -18,30 +18,19 @@
 #
 ####################################################################################################
 
-# http://www.pyinvoke.org
+####################################################################################################
+
+from invoke import task
+
+from .common import load_settings
 
 ####################################################################################################
 
-from invoke import task, Collection
-# import sys
-
-####################################################################################################
-
-# from . import clean
-# from . import doc
-# from . import release
-from . import country
-from . import database
-from . import git
-from . import start
-from . import stripe
-
-ns = Collection()
-# ns.add_collection(Collection.from_module(clean))
-# ns.add_collection(Collection.from_module(doc))
-# ns.add_collection(Collection.from_module(release))
-ns.add_collection(Collection.from_module(country))
-ns.add_collection(Collection.from_module(database))
-ns.add_collection(Collection.from_module(git))
-ns.add_collection(Collection.from_module(start))
-ns.add_collection(Collection.from_module(stripe))
+@task()
+def forward_webhook(ctx, env_path="./dev.env"):
+    """Forward Stripe webhook"""
+    settings = load_settings(env_path)
+    host = settings.SERVER_HOST
+    port = settings.SERVER_PORT
+    url = "/".join((settings.API_V1_STR, "stripe_webhook"))
+    ctx.run(f"stripe listen --forward-to {host}:{port}/{url}")

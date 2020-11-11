@@ -18,30 +18,16 @@
 #
 ####################################################################################################
 
-# http://www.pyinvoke.org
+__all__ = ["load_settings"]
 
 ####################################################################################################
 
-from invoke import task, Collection
-# import sys
+import os
 
 ####################################################################################################
 
-# from . import clean
-# from . import doc
-# from . import release
-from . import country
-from . import database
-from . import git
-from . import start
-from . import stripe
-
-ns = Collection()
-# ns.add_collection(Collection.from_module(clean))
-# ns.add_collection(Collection.from_module(doc))
-# ns.add_collection(Collection.from_module(release))
-ns.add_collection(Collection.from_module(country))
-ns.add_collection(Collection.from_module(database))
-ns.add_collection(Collection.from_module(git))
-ns.add_collection(Collection.from_module(start))
-ns.add_collection(Collection.from_module(stripe))
+def load_settings(env_path="./dev.env"):
+    if "BACKEND_SETTINGS_PATH" not in os.environ:
+        os.putenv("BACKEND_SETTINGS_PATH", env_path)
+    from app.core.config import settings
+    return settings

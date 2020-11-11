@@ -18,6 +18,8 @@
 #
 ####################################################################################################
 
+__all__ = ['settings', 'ENV_PATH']
+
 ####################################################################################################
 
 from pathlib import Path
@@ -30,7 +32,7 @@ from pydantic import AnyHttpUrl, BaseSettings, EmailStr, HttpUrl, PostgresDsn, v
 
 ####################################################################################################
 
-__module_logger = logging.getLogger(__name__)
+_module_logger = logging.getLogger(__name__)
 
 ####################################################################################################
 
@@ -41,18 +43,22 @@ __module_logger = logging.getLogger(__name__)
 
 class Settings(BaseSettings):
 
+    # SERVER_NAME: str   # unused
+    SERVER_HOST: AnyHttpUrl
+    SERVER_PORT: int = 8000
+
     LOGGING_CONFIG: str = "./logging.yml"
 
-    API_V1_STR: str = "/api/v1"
-    SECRET_KEY: str = secrets.token_urlsafe(32)
-    # 60 minutes * 24 hours * 8 days = 8 days
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8
-    SERVER_NAME: str
-    SERVER_HOST: AnyHttpUrl
     # BACKEND_CORS_ORIGINS is a JSON-formatted list of origins
     # e.g: '["http://localhost", "http://localhost:4200", "http://localhost:3000", \
     # "http://localhost:8080", "http://local.dockertoolbox.tiangolo.com"]'
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
+
+    API_V1_STR: str = "/api/v1"
+
+    SECRET_KEY: str = secrets.token_urlsafe(32)
+    # 60 minutes * 24 hours * 8 days = 8 days
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8
 
     @validator("BACKEND_CORS_ORIGINS", pre=True)
     def assemble_cors_origins(cls, v: Union[str, List[str]]) -> Union[List[str], str]:
@@ -123,6 +129,7 @@ class Settings(BaseSettings):
 
     STRIPE_API_KEY: str
     STRIPE_ENDPOINT_SECRET: str
+    STRIPE_CLI_PATH: str
 
     class Config:
         case_sensitive = True
@@ -132,14 +139,14 @@ class Settings(BaseSettings):
 # https://github.com/tiangolo/fastapi/issues/1101
 # https://pydantic-docs.helpmanual.io/usage/settings/#dotenv-env-support
 
-backend_settings_path = "BACKEND_SETTINGS_PATH"
-backend_settings_path_default = "prod.env"
-env_file = Path(os.environ.get(backend_settings_path, backend_settings_path_default)).absolute()
-if env_file.exists():
-    # __module_logger.info()  # Fixme: not yet configured
-    print(f"Load settings from {env_file}")
+_backend_settings_path = "BACKEND_SETTINGS_PATH"
+_backend_settings_path_default = "prod.env"
+ENV_PATH = Path(os.environ.get(_backend_settings_path, _backend_settings_path_default)).absolute()
+if ENV_PATH.exists():
+    # _module_logger.info()  # Fixme: not yet configured
+    print(f"Load settings from {ENV_PATH}")
 else:
-    raise NameError(f"Environment file {env_file} not found")
+    raise NameError(f"Environment file {ENV_PATH} not found")
 
 
-settings = Settings(_env_file=env_file, _env_file_encoding="utf-8")
+settings = Settings(_env_file=ENV_PATH, _env_file_encoding="utf-8")

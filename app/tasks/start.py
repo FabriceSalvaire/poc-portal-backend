@@ -20,9 +20,9 @@
 
 ####################################################################################################
 
-import os
-
 from invoke import task
+
+from .common import load_settings
 
 ####################################################################################################
 
@@ -37,7 +37,8 @@ from invoke import task
 ####################################################################################################
 
 @task()
-def dev_server(ctx, settings="dev.env"):
+def dev_server(ctx, env_path="./dev.env"):
     """Start a dev server"""
-    os.putenv("BACKEND_SETTINGS_PATH", settings)
-    ctx.run("uvicorn app.main:app --reload")
+    settings = load_settings(env_path)
+    port = settings.SERVER_PORT
+    ctx.run(f"uvicorn app.main:app --reload --port ${port}")
