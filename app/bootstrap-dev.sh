@@ -1,3 +1,5 @@
+####################################################################################################
+
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ### Retrieving Poetry metadata
 ###
@@ -39,16 +41,14 @@ pip install --upgrade pip
 
 poetry install
 
-su - postgres
-createuser --pwprompt donate
-createdb --owner=donate --encoding=UTF8 --template=template0 donate
+####################################################################################################
+#
+# see doc/deployment.md
+#
 
-invoke database.alembic-revision 'init'
-invoke database.alembic-upgrade
+# ...
 
-python app/initial_data.py # Fixme
-
-uvicorn app.main:app --reload
+####################################################################################################
 
 # http://127.0.0.1:8000/docs
 # login using username = FIRST_SUPERUSER and password = FIRST_SUPERUSER_PASSWORD
