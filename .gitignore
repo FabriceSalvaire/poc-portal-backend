@@ -5,13 +5,18 @@
 *~
 __pycache__
 du.log
+__TRASH__/
 
 ####################################################################################################
 
 app/app.egg-info/
 app/env/
+app/node_modules/
 app/poetry.lock
+app/yarn.lock
 env/
+
+app/stripe
 
 ####################################################################################################
 #
@@ -32,19 +37,18 @@ app/app/data/country.json
 #
 #####################################################################################################
 
-app/alembic/versions/
-
-# doc/
 .travis.yml
+app/alembic/versions/
+app/doc/
+app/notes/
 
 ####################################################################################################
 
 app/alembic.ini.diff
 app/alembic/env.py.diff
-
-app/__TRASH__/
-app/app/foo
+app/app/email-templates/build-orig/
 app/app/tests/api/api_v1/_test_celery.py
 app/app/tests/utils/_donation.py
-
+app/checkout.session.completed.json
 app/requirements.txt
+app/test-recaptcha.py
