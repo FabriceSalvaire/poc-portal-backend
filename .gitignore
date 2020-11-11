@@ -42,4 +42,9 @@ app/alembic/versions/
 app/alembic.ini.diff
 app/alembic/env.py.diff
 
-app/test-recaptcha.py
+app/__TRASH__/
+app/app/foo
+app/app/tests/api/api_v1/_test_celery.py
+app/app/tests/utils/_donation.py
+
+app/requirements.txt
