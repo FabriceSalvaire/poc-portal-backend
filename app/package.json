@@ -1,0 +1,12 @@
+{
+  "name": "poc",
+  "version": "1.0.0",
+  "description": "poc portal",
+  "main": "index.js",
+  "repository": "https://code.electrolab.fr/fabrice/poc-portal-backend",
+  "author": "Fabrice Salvaire",
+  "license": "AGPL v3",
+  "dependencies": {
+    "mjml": "^4.7.1"
+  }
+}
